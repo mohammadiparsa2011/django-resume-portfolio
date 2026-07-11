@@ -189,8 +189,8 @@ django-resume-portfolio/
 من **پارسا محمدی** هستم، یک توسعه‌دهنده که از ساختن اپلیکیشن‌های وب تمیز و کاربردی لذت می‌برد. می‌توانید من را در:
 
 - گیت‌هاب: [@mohammadiparsa2011](https://github.com/mohammadiparsa2011)
-- لینکدین: [پروفایل لینکدین من](https://linkedin.com/in/your-profile)
-- وب‌سایت: [سایت شخصی من](https://your-site.com)
+- لینکدین: [پروفایل لینکدین من](https://linkedin.com/in/mohammadiparsa2011)
+- وب‌سایت: [سایت شخصی من](https://parsanova.ir)
 
 ---
 
