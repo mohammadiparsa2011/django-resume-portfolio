@@ -1,0 +1,160 @@
+/* Header */
+.bix-fixed {
+	@include ease3;
+	padding: 5px 0 !important;
+	z-index: 40 !important;
+	.bix-navbar {
+		@include ease3;
+		padding: 10px 15px;
+		background-color: rgba(247, 245, 251, 0.85);
+		border: 1px solid $black;
+		border-radius: 25px;
+		backdrop-filter: blur(5px);
+		.navbar-brand {
+			padding: 0;
+		}
+	}
+}
+
+.bix-main-menu {
+	ul {
+		li {
+			&:hover {
+				> a {
+					&:after {
+						color: $primary;
+					}
+				}
+			}
+			.mega-menu {
+				box-shadow: $bg-box;
+			}
+		}
+		li.dropdown {
+			ul.sub-menu {
+				box-shadow: $sub-menu-shadow;
+			}
+			ul {
+				li.active {
+					a {
+						color: $primary;
+						i {
+							color: $primary;
+						}
+					}
+				}
+				li {
+					&:hover {
+						> a {
+							i {
+								color: $primary;
+							}
+						}
+					}
+					a {
+						&:hover {
+							i {
+								color: $primary;
+							}
+						}
+					}
+				}
+			}
+			li.position-static {
+				position: relative !important;
+				&:hover {
+					.sub-menu.sub-menu-child {
+						margin: -5px 0 0 0;
+						opacity: 1;
+						visibility: visible;
+					}
+				}
+			}
+			ul.sub-menu.sub-menu-child {
+				@include ease3;
+				margin: 30px 0 0 0;
+				left: 100% !important;
+				opacity: 0;
+				visibility: hidden;
+				top: 0;
+			}
+			&:hover {
+				.sub-menu {
+					margin-top: 0;
+					opacity: 1;
+					visibility: visible;
+				}
+				.mega-menu {
+					margin-top: 0;
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+		}
+		li.active {
+			> a {
+				color: $primary;
+			}
+		}
+	}
+	> ul {
+		> li {
+			&:hover {
+				> a {
+					&:before {
+						background: $primary;
+						width: 100%;
+					}
+					i {
+						color: $primary;
+					}
+				}
+			}
+		}
+		> li.active {
+			> a {
+				&:before {
+					width: 100%;
+					background: $primary;
+				}
+			}
+		}
+	}
+}
+
+.bix-mobile-menu {
+	.bix-menu-inner {
+		.bix-menu-content {
+			ul {
+				li {
+					.menu-toggle {
+						width: 100%;
+						height: 47px;
+						padding-right: 15px;
+						position: absolute;
+						z-index: 2;
+						top: 0;
+						right: 0;
+						left: auto;
+						cursor: pointer;
+						background-color: transparent;
+						display: flex;
+						align-items: center;
+						justify-content: flex-end;
+						&:before {
+							content: "+";
+							font-weight: 500;
+							color: $text-777;
+							font-size: 24px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.bix-mobile-menu.bix-menu-open {
+	transform: translateX(0);
+	opacity: 1;
+}

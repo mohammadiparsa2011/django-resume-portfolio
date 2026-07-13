@@ -1,0 +1,82 @@
+{% load static %}
+
+
+<div class="bix-modal-overlay w-full h-screen hidden fixed top-0 left-0 z-[50] bg-[#00000080] blur-[2px]"></div>
+<div class="bix-modal max-[575px]:w-full fixed hidden top-[45%] max-[767px]:top-[50%] left-[50%] z-[51] max-[767px]:w-full max-[767px]:max-h-full">
+    <div class="bix-modal-dialog h-full my-[0%] transition-transform duration-[0.3s] ease-out mx-auto max-w-[500px] w-[500px] max-[575px]:max-w-full max-[575px]:w-full p-[0.5rem]">
+        <div class="modal-content p-[20px] bg-[#fff] rounded-[30px] relative overflow-hidden">
+            <div class="modal-body">
+                <div class="bix-contact-tabs">
+                    <ul class="nav nav-tabs mb-[24px] inline-flex justify-center items-center bg-[#fff] border-[1px] border-solid border-[#111a24] rounded-[25px]" id="contact_tabs">
+                        <li class="bix-tab-popup nav-item m-[10px] active">
+                            <a href="javascript:void(0)" class="py-[5px] px-[15px] rounded-[15px] capitalize font-medium text-[16px] block" data-id-popup="freelancer">فریلنسر</a>
+                        </li>
+                        <li class="bix-tab-popup nav-item m-[10px]">
+                            <a href="javascript:void(0)" class="py-[5px] px-[15px] rounded-[15px] capitalize font-medium text-[16px] block" data-id-popup="job">شغل</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-contact-pane tab-popup tab-active-popup" data-id-popup="freelancer">
+                            <div class="w-full">
+                                <form id="contact-form" method="post" action="{% url 'core:contact' %}">
+                                    {% csrf_token %}
+                                    <div class="form-group mb-[12px]">
+                                        <input type="text" name="Name" placeholder="نام" class="w-full h-[50px] p-[15px] border-[1px] border-solid border-[#eae8ef] outline-[0] rounded-[20px]">
+                                    </div>
+                                    <div class="form-group mb-[12px]">
+                                        <input type="email" name="Email" placeholder="ایمیل" class="w-full h-[50px] p-[15px] border-[1px] border-solid border-[#eae8ef] outline-[0] rounded-[20px]">
+                                    </div>
+                                    <div class="form-group mb-[12px]">
+                                        <select class="form-select w-full h-[50px] p-[15px] border-[1px] border-solid border-[#eae8ef] outline-[0] rounded-[20px]" aria-label="Select Method">
+                                            <option selected>نرخ ثابت</option>
+                                            <option value="1">نرخ ساعتی</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group mb-[12px]">
+                                        <input name="text" placeholder="پیشنهاد ویژه (فقط ۱۹۰۰ دلار)" type="email" class="w-full h-[50px] p-[15px] border-[1px] border-solid border-[#eae8ef] outline-[0] rounded-[20px]">
+                                    </div>
+                                    <div class="form-group mb-[12px]">
+                                        <textarea name="your-comment" placeholder="نامه پیشنهاد" class="w-full h-auto p-[15px] border-[1px] border-solid border-[#eae8ef] outline-[0] rounded-[20px]"></textarea>
+                                    </div>
+                                    <div class="bix-review-buttons">
+                                        <button type="submit" class="bix-button transition-all duration-[0.3s] ease-in-out py-[10px] px-[15px] font-montserrat text-[14px] font-semibold leading-[1.2] capitalize bg-[#fff] text-[#111a24] border-[1px] border-solid border-[#111a24] rounded-[15px] hover:bg-[#f41a4a] hover:border-[#f41a4a] hover:text-[#fff]" value="Submit">ارسال</button>
+                                        <button type="button" class="bix-button bix-close-modal transition-all duration-[0.3s] ease-in-out py-[10px] px-[15px] font-montserrat text-[14px] font-semibold leading-[1.2] capitalize bg-[#fff] text-[#111a24] border-[1px] border-solid border-[#111a24] rounded-[15px] hover:bg-[#f41a4a] hover:border-[#f41a4a] hover:text-[#fff]">بستن</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="tab-contact-pane tab-popup" data-id-popup="job">
+                            <div class="w-full">
+                                <form method="post" action="{% url 'core:contact' %}">
+                                    {% csrf_token %}
+                                    <div class="form-group mb-[12px]">
+                                        <input type="text" name="Name" placeholder="نام" class="w-full h-[50px] p-[15px] border-[1px] border-solid border-[#eae8ef] outline-[0] rounded-[20px]">
+                                    </div>
+                                    <div class="form-group mb-[12px]">
+                                        <input type="email" name="Email" placeholder="ایمیل" class="w-full h-[50px] p-[15px] border-[1px] border-solid border-[#eae8ef] outline-[0] rounded-[20px]">
+                                    </div>
+                                    <div class="form-group mb-[12px]">
+                                        <select class="form-select w-full h-[50px] p-[15px] border-[1px] border-solid border-[#eae8ef] outline-[0] rounded-[20px]" aria-label="Select Method">
+                                            <option selected="">شغل مجازی</option>
+                                            <option value="1">شغل اداری</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group mb-[12px]">
+                                        <input name="text" placeholder="حقوق پیشنهادی به استثنای ۱۵۰۰ دلار در ماه" type="email" class="w-full h-[50px] p-[15px] border-[1px] border-solid border-[#eae8ef] outline-[0] rounded-[20px]">
+                                    </div>
+                                    <div class="form-group mb-[12px]">
+                                        <textarea name="your-comment" placeholder="نامه پیشنهاد" class="w-full h-auto p-[15px] border-[1px] border-solid border-[#eae8ef] outline-[0] rounded-[20px]"></textarea>
+                                    </div>
+                                    <div class="bix-review-buttons">
+                                        <button type="submit" class="bix-button transition-all duration-[0.3s] ease-in-out py-[10px] px-[15px] font-montserrat text-[14px] font-semibold leading-[1.2] capitalize bg-[#fff] text-[#111a24] border-[1px] border-solid border-[#111a24] rounded-[15px] hover:bg-[#f41a4a] hover:border-[#f41a4a] hover:text-[#fff]" value="Submit">ارسال</button>
+                                        <button type="button" class="bix-button bix-close-modal transition-all duration-[0.3s] ease-in-out py-[10px] px-[15px] font-montserrat text-[14px] font-semibold leading-[1.2] capitalize bg-[#fff] text-[#111a24] border-[1px] border-solid border-[#111a24] rounded-[15px] hover:bg-[#f41a4a] hover:border-[#f41a4a] hover:text-[#fff]">بستن</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

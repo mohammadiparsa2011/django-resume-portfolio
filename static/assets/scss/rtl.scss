@@ -1,0 +1,602 @@
+/* RTL css */
+@import "utilities/_variables";
+
+html * {
+    direction: rtl;
+}
+
+.slick-slider *,
+.owl-carousel * {
+    direction: ltr;
+}
+
+.bix-main-menu {
+    ul {
+        li {
+            margin-left: auto;
+            margin-right: 30px;
+        }
+        li.dropdown {
+                .sub-menu {
+                    text-align: right;
+                    li {
+                        margin: 0;
+                    }
+                }
+        }
+    }
+}
+.inner-categories {
+    ul {
+        padding-left: 0;
+        padding-right: 15px;
+    }
+}
+
+.section-hero {
+    &:before {
+        left: auto;
+        right: 0;
+    }
+    &:after {
+        right: auto;
+        left: 0;
+    }
+}
+.bix-achievement-inner.bix-border-l {
+    padding-left: 0;
+    padding-right: 30px;
+    border-left: 0;
+    border-right: 1px solid rgba(17, 26, 36, 1);
+    .achievement-year {
+        right: -82px;
+    }
+}
+.bix-achievement-inner.bix-border-r {
+    padding-right: 0;
+    padding-left: 30px;
+    border-right: 0;
+    border-left: 1px solid rgba(17, 26, 36, 1);
+}
+.bix-hero-contact {
+    h1 {
+        &:after {
+            right: -40px;
+        }
+    }
+}
+
+.bix-skill {
+    .skill-inner-box {
+        .skill-logo {
+            right: auto;
+            left: 55px;
+        }
+        .skill-contact {
+            .inner-skill-circle {
+                margin-right: 0;
+                margin-left: 12px;
+            }
+        }
+    }
+}
+
+.bix-about-img {
+    .bix-rounded-circle {
+        right: auto;
+        left: 0;
+    }
+}
+
+.bix-rounded-circle {
+    svg {
+        text {
+            textPath {
+                direction: ltr;
+            }
+        }
+    }
+}
+
+ul.nav-tabs {
+    padding: 0;
+}
+
+.bix-mobile-menu {
+    .bix-menu-inner {
+        .bix-menu-content {
+            ul {
+                li {
+                    .menu-toggle {
+                        padding-right: 0;
+                        padding-left: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.bix-hero-contact:after {
+    right: auto;
+    left: 0;
+}
+
+.bix-hero-contact {
+    &:before {
+        left: auto;
+        right: 50px;
+    }
+}
+.bix-achievement {
+    .bix-achievement-inner {
+        .bix-achievement-box.left {
+            .achievement-year {
+                left: -82px;
+                right: auto;
+            }
+            &:after {
+                left: -30px;
+                right: auto;
+            }
+        }
+        .bix-achievement-box.right {
+            &:after {
+                right: -30px;
+                left: auto;
+            }
+        }
+    }
+    .border-r {
+        border-left: 0.5px solid $black;
+        border-right: 0;
+        padding: 0 0 0 30px;
+        .achievement-year {
+            right: auto;
+            left: -72px;
+        }
+    }
+    .border-l {
+        border-right: 0.5px solid $black;
+        border-left: 0;
+        padding: 0 30px 0 0;
+        .achievement-year {
+            left: auto;
+            right: -82px;
+        }        
+    }
+}
+
+.bix-testimonials-inner {
+    .row {
+        direction: rtl;
+    }
+}
+
+.bix-hero-img {
+    &:after {
+        left: auto;
+        right: 0;
+    }
+}
+
+.bix-hero-contact {
+    .bix-buttons {
+        &:after {
+            right: auto;
+            left: 200px;
+        }
+    }
+}
+
+.section-about {
+    &:before {
+        left: auto;
+        right: 0;
+        transform: rotate(180deg);
+    }
+    &:after {
+        left: 0;
+        right: auto;
+        transform: rotate(180deg);
+    }
+}
+
+.bix-about-img {
+    &:hover {
+        .inner-item {
+            right: auto;
+            left: 12px !important;
+            opacity: 1;
+        }
+    }
+    .inner-item {
+        left: 0 !important;
+        right: auto;
+        .box-inner {
+            &:after {
+                transform: rotate(-90deg);
+                right: -30px;
+                left: auto;
+            }
+        }
+    }
+}
+
+.section-achievement {
+    &:before {
+        left: auto;
+        right: 10px;
+    }
+
+    &:after {
+        left: auto;
+        right: 500px;
+    }
+}
+
+.bix-services-box {
+    .services-inner-contact {
+        ul {
+            padding-right: 0;
+        }
+    }
+}
+
+.bix-single-projects-contact {
+    .inner-projects-contact {
+        .inner-contact {
+            ul {
+                padding-left: 0;
+                padding-right: 30px;
+            }
+        }
+    }
+    .bix-products-tabs {
+        .tab-content {
+            .products-tabs-details {
+                .inner-contact {
+                    ul {
+                        padding-left: 0;
+                        padding-right: 30px;
+                    }
+                }
+            }
+        }
+    }
+}
+.client-details {
+    padding-left: 0;
+    padding-right: 15px;
+}
+.section-services {
+    &:before {
+        left: auto;
+        right: 100px;
+    }
+}
+
+.section-testimonials {
+    &:after {
+        left: auto;
+        right: 0;
+    }
+}
+
+.bix-testimonials {
+    .inner-banner {
+        left: auto;
+        right: 150px;
+        transform: rotate(-270deg);
+    }
+    .bix-testimonials-inner {
+        .testimonials-contact {
+            .inner-contact {
+                text-align: right;
+            }
+            h4 {
+                text-align: right;
+            }
+            span {
+                text-align: right;
+            }
+        }
+    }
+    .testimonials-img-1 {
+        left: auto;
+        right: 50px;
+    }
+    .testimonials-img-2 {
+        left: auto;
+        right: 0;
+    }
+    .testimonials-img-3 {
+        right: auto;
+        left: 500px;
+    }
+    .testimonials-img-4 {
+        right: auto;
+        left: 250px;
+    }
+    .testimonials-img-5 {
+        right: auto;
+        left: 0;
+    }
+    .testimonials-img-6 {
+        right: auto;
+        left: 80px;
+    }
+}
+
+.section-about {
+    .container {
+        &:before {
+            left: auto;
+            right: 150px;
+        }
+    }
+}
+
+.bix-text-left {
+    justify-content: right;
+}
+
+.accordion-button {
+    &:after {
+        margin-left: 0;
+        margin-right: auto;
+    }
+}
+
+.bix-resume-sidebar {
+    .resume-contact-info {
+        ul {
+            padding-right: 0;
+        }
+    }
+}
+
+.bix-client {
+    .inner-details {
+        .side-image {
+            img {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+                border-top-right-radius: $radius-20;
+                border-bottom-right-radius: $radius-20;
+            }
+        }
+    }
+}
+.navbar-brand {
+    margin: 0;
+}
+.bix-blog-box {
+    .blog-img {
+        left: auto;
+        right: 20px;
+        margin-left: 10px;
+        margin-right: 0;
+    }
+    .blog-contact {
+        text-align: right;
+        padding-left: 0px;
+        padding-right: 200px;
+        margin-left: 0;
+        margin-right: 20px;
+    }
+}
+
+.bix-single-projects-sidebar {
+    .bix-gallery-card {
+        .border-top-left-radius {
+            border-top-right-radius: $radius-20;
+            border-top-left-radius: 0;
+        }
+        .border-top-right-radius {
+            border-top-right-radius: 0;
+            border-top-left-radius: $radius-20;
+        }
+        .border-bottom-left-radius {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: $radius-20;
+        }
+        .border-bottom-right-radius {
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: $radius-20;
+        }
+    }
+}
+
+.bix-blog-sidebar {
+    .bix-categories {
+        .inner-categories {
+            ul {
+                padding-left: 0;
+            }
+        }
+    }
+}
+.blog-rows-card {
+    .inner-contact {
+        padding-left: 0;
+        padding-right: 15px;
+    }
+}
+.bix-accordion-header, .bix-accordion-header.active-arrow {
+    &:after {
+        left: 20px;
+        right: auto;
+    }
+}
+/* Responsive */
+@media screen and (max-width: 1399px) {
+    .bix-achievement {
+        .border-r {
+            .achievement-year {
+                &:after {
+                    bottom: 68px;
+                }
+            }
+        }
+        .border-l {
+            .achievement-year {
+                &:after {
+                    top: 68px;
+                }
+            }
+        }
+    }
+    .bix-testimonials {
+        .inner-banner {
+            right: 90px;
+        }
+    }
+    .bix-testimonials {
+        .testimonials-img-1 {
+            right: 10px;
+        }
+        .testimonials-img-3 {
+            left: 400px;
+        }
+        .testimonials-img-4 {
+            left: 200px;
+        }
+        .testimonials-img-6 {
+            left: 0;
+        }
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .bix-achievement {
+        .border-r {
+            .achievement-year {
+                &:after {
+                    bottom: 79px;
+                }
+            }
+        }
+    }
+    .bix-blog-box {
+        .blog-contact {
+            margin-right: 0;
+            padding-right: 0;
+        }
+        .blog-img {
+            margin-left: 0;
+            margin-bottom: 10px;
+            position: relative;
+            width: auto;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+    }
+    .bix-testimonials {
+        .inner-banner {
+            right: 10px;
+        }
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .bix-testimonials {
+        .testimonials-img-3 {
+            right: 0;
+            left: auto;
+        }
+        .testimonials-img-4 {
+            right: 100px;
+            left: auto;
+        }
+        .testimonials-img-6 {
+            left: 50px;
+            right: auto;
+        }
+    }
+    .bix-achievement {
+        .border-r {
+            .achievement-year {
+                &:after {
+                    bottom: 118px;
+                }
+            }
+        }
+        .border-l {
+            .achievement-year {
+                &:after {
+                    top: 107px;
+                }
+            }
+        }
+    }
+    .section-about {
+        .container {
+            &:before {
+                left: 0;
+                right: auto;
+            }
+        }
+    }
+    .bix-resume-contact {
+        .sub-heading {
+            justify-content: right;
+            text-align: right;
+            .inner-img {
+                margin-right: 0;
+                margin-left: 15px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .bix-achievement-inner.bix-border-l {
+        padding-left: 0;
+        padding-right: 0;
+        border-left: 0;
+        border-right: 0;
+        .achievement-year {
+            right: -82px;
+        }
+    }
+    .bix-achievement-inner.bix-border-r {
+        padding-right: 0;
+        padding-left: 0;
+        border-right: 0;
+        border-left: 0;
+    }
+    .bix-testimonials {
+        .testimonials-img-4 {
+            right: 0;
+            left: auto;
+        }
+    }
+    .bix-achievement {
+        .border-l,
+        .border-r {
+            border: 0;
+            padding: 0;
+        }
+    }
+    .bix-achievement {
+        .bix-achievement-inner {
+            .bix-achievement-box.left, .bix-achievement-box.right {
+                .achievement-year {
+                    right: 30px;
+                    left: auto;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .section-achievement {
+        &:after {
+            left: auto;
+            right: 10px;
+        }
+    }
+}

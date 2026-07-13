@@ -1,0 +1,247 @@
+/* achievement */
+.tab-content{
+    .tab-activity-pane {
+        @include ease3;
+        display: none !important;
+    }
+    .tab-activity-pane.tab-active {
+        display: block !important;
+    }
+}
+.bix-tab.active {
+    @include ease3;
+    background-color: $black-off;
+    color: #fff;
+}
+.tab-activity-pane {
+    @include ease3;
+}
+.bix-tab {
+    @include ease3;
+    border-radius: 15px;
+}
+.section-achievement {
+    &:before {
+        content: "";
+        height: 110px;
+        width: 100px;
+        background-image: url("../img/achieve/shape-1.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        position: absolute;
+        top: 150px;
+        left: 10px;
+        z-index: -1;
+    }
+    &:after {
+        content: "";
+        height: 130px;
+        width: 130px;
+        background-image: url("../img/achieve/shape-2.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        position: absolute;
+        bottom: 50px;
+        left: 500px;
+        z-index: -1;
+    }
+}
+
+ul#bix_activity {
+    li.active{
+        a {
+            border: 0;
+            background-color: $black;
+            color: $white;
+        }
+    }
+}
+
+.bix-achievement {
+    .bix-border-r {
+        &:before {
+            content: "";
+            height: 6px;
+            width: 16px;
+            border: 2px solid #fff;
+            position: absolute;
+            right: 0;
+            left: 0;
+            top: 0;
+            margin: auto;
+            background-color: $black;
+            z-index: 0;
+        }
+        .achievement-year {
+            &:after {
+                top: 55px;
+            }
+        }
+    }
+    .bix-border-l {
+        &:before {
+            content: "";
+            height: 6px;
+            width: 16px;
+            border: 2px solid #fff;
+            margin: auto;
+            position: absolute;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            background-color: $black;
+            z-index: 0;
+        }
+        .achievement-year {
+            &:after {
+                bottom: 55px;
+            }
+        }
+    }
+    .bix-achievement-inner {
+        .bix-achievement-box {
+            p {
+                display: -webkit-box; 
+                -webkit-line-clamp: 3; 
+                -webkit-box-orient: vertical;
+            }
+        }
+        .bix-achievement-box.left {
+            &:after {
+                content: "";
+                width: 30px;
+                height: 2px;
+                position: absolute;
+                top: 50%;
+                right: -30px;
+                background-color: $black;
+                z-index: -1;
+            }
+        }
+        .bix-achievement-box.right {
+            &:after {
+                content: "";
+                width: 30px;
+                height: 2px;
+                position: absolute;
+                top: 50%;
+                left: -30px;
+                background-color: $black;
+                z-index: -1;
+            }
+        }
+    }
+}
+
+/* Responsive */
+@media screen and (max-width: 1399px) {
+    .section-achievement {
+        &:after{
+            left: 400px;
+        }
+    }
+    .bix-achievement {
+        .bix-border-r {
+            .achievement-year {
+                &:after {
+                    top: 68px;
+                }
+            }
+        }
+        .bix-border-l {
+            .achievement-year {
+                &:after {
+                    bottom: 68px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .section-achievement {
+        &:after{
+            height: 100px;
+            width: 100px;    
+            left: 300px;
+        }
+    }
+    .bix-achievement {
+        .bix-border-r {
+            .achievement-year {
+                &:after {
+                    top: 78px;
+                }
+            }
+        }
+        .bix-border-l {
+            .achievement-year {
+                &:after {
+                    bottom: 68px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .section-achievement {
+        &:before{
+            height: 90px;
+            width: 80px;
+        }
+    }
+    .bix-achievement {
+        .bix-border-r {
+            .achievement-year {
+                &:after {
+                    top: 118px;
+                }
+            }
+        }
+        .bix-border-l {
+            .achievement-year {
+                &:after {
+                    bottom: 108px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .section-achievement {
+        &:after{
+            left: 10px;        
+        }
+    }
+    .bix-achievement {
+        .bix-border-l {
+            &:before{
+                display: none;            
+            }
+            .achievement-year {
+                &:after {
+                    bottom: 70px;
+                }
+            }
+        }
+        .bix-achievement-inner {
+            .bix-achievement-box.left, .bix-achievement-box.right {
+                &:after {
+                    display: none;
+                }
+            }
+        }
+        .bix-border-r {
+            &:before{
+                display: none;
+            }
+            .achievement-year {
+                &:after {
+                    top: 87px;
+                }
+            }
+        }
+    }
+}

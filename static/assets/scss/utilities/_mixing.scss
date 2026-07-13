@@ -1,0 +1,35 @@
+/* mixing */
+@mixin ease1 {
+    transition: all .1s ease-in-out;
+}
+
+@mixin ease2 {
+    transition: all .2s ease-in-out;
+}
+
+@mixin ease3 {
+    transition: all 0.3s ease-in-out;
+}
+
+@mixin ease4 {
+    transition: all 0.4s ease-in-out;
+}
+
+@mixin ease05 {
+    transition: all .5s ease-in-out;
+}
+
+@mixin scrollbar {
+    &::-webkit-scrollbar {
+        background-color: transparent;
+        width: 7px;
+        height: 7px;
+        position: absolute;
+        background-color: $primary;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $primary;
+        border-radius: 5px;
+    }
+}

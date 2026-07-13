@@ -1,0 +1,54 @@
+/* tools-sidebar */
+.bix-tools-sidebar {
+	.bix-tools-detail {		
+		@include scrollbar;
+		.bix-tools-block {
+			.bix-tools-rtl ,
+			.bix-tools-dark {
+				.active-mode ,
+				.active-dark-mode{
+					position: relative;
+					&:after {
+						content: "\EB79";
+						width: 30px;
+						height: 30px;
+						font-size: 16px;
+						font-family: 'remixicon' !important;
+						position: absolute;
+						top: 10px;
+						right: 10px;
+						border-radius: $radius-10;
+						background-color: $black;
+						color: $white;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+					}
+					img {
+						border-color: $primary;
+					}
+				}
+			}
+		}
+	}
+}
+
+.active-variant{
+	position: relative;
+	&:after {
+		font-family: 'remixicon' !important;
+		content: "\EB79";
+		height: 35px;
+		width: 35px;
+		font-size: 18px;
+		position: absolute;
+		color: $white;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+.open-tools {
+	transform: translateX(0) !important;
+}

@@ -1,0 +1,129 @@
+/* color-7 */
+@import "utilities/_variables";
+
+::selection {
+    color: $color-7;
+}
+
+.bix-main-menu {
+    ul {
+        li {
+            &:hover > a{
+                color: $color-7;
+            }
+        }
+        li.dropdown {
+            ul {
+                li {
+                    a {
+                        &:hover{
+                            color: $color-7;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.bix-main-menu {
+    ul {
+        li.active {
+            > a {
+                color: $color-7;
+            }
+        }
+    }
+}
+.bix-project-card {
+    .project-contact {
+        h5 {
+            a {
+                &:hover {
+                    color: $color-7;
+                }
+            }
+        }
+    }
+}
+.bix-blog-box {
+    .blog-contact {
+        h4 {
+            a {
+                &:hover {
+                    color: $color-7;
+                }
+            }
+        }
+    }
+}
+.bix-main-menu > ul > li {
+    &:hover > a {
+        i{
+            color: $color-7;
+        }
+    }
+}
+
+.bix-hero-contact {
+    h4{
+        color: $color-7;
+    }
+}
+
+.bix-hero-contact {
+    p {
+        span{
+            color: $color-7;
+        }
+    }
+}
+
+.bix-button {
+    &:hover{
+        background-color: $color-7;
+        border-color: $color-7;
+    }
+}
+
+.bix-banner {
+    h4 {
+        span{
+            color: $color-7;
+        }
+    }
+}
+
+.bix-hire-banner .bix-hire-contact h2 span{
+    color: $color-7;
+}
+
+a.back-to-top {
+    color: $color-7;
+    border-color: $color-7;
+    svg path{
+        stroke: $color-7;
+    }
+}
+
+.bix-tools-sidebar {
+	.bix-tools-detail {		
+		.bix-tools-block {
+			.bix-tools-rtl ,
+			.bix-tools-dark {
+                .bix-tools-item{
+                    img{
+                        &:hover{
+                            border-color: $color-7;
+                        }
+                    }                    
+                }
+				.active-mode ,
+				.active-dark-mode{
+					img {
+						border-color: $color-7;
+                    }
+                }
+            }
+        }
+    }
+}

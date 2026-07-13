@@ -1,0 +1,303 @@
+/* Hero */
+.section-hero {
+    .first-name,
+    .last-name {
+        text-shadow:
+            2px 2px $black-off,
+            -2px 2px $black-off,
+            2px -2px $black-off,
+            -2px -2px $black-off;
+    }
+}
+
+.bix-hero-img {
+    &:after {
+        content: "";
+        height: 60px;
+        width: 60px;
+        background-image: url("../img/hero/shape-4.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+    }
+    .hero-inner-img {
+        &:after {
+            content: "";
+            height: 500px;
+            width: 500px;
+            background-image: url("../img/hero/shape-one.png");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            margin: auto;
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            right: 0;
+            z-index: -1;
+        }
+        &:before {
+            content: "";
+            background-image: url("../img/hero/border-one.png");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            height: 550px;
+            width: 550px;
+            margin: auto;
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            right: 0;
+            z-index: -1;
+        }
+    }
+}
+
+.bix-hero-contact {
+    &:before {
+        content: "";
+        height: 60px;
+        width: 60px;
+        background-image: url("../img/hero/shape-1.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        position: absolute;
+        top: 30px;
+        left: 50px;
+        z-index: -1;
+    }
+    &:after {
+        content: "";
+        height: 50px;
+        width: 25px;
+        background-image: url("../img/hero/shape-2.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: -1;
+    }
+    h1 {
+        &:after {
+            content: "";
+            height: 70px;
+            width: 70px;
+            background-image: url("../img/hero/shape-two.png");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            position: absolute;
+            top: -40px;
+            right: 40px;
+            z-index: -1;
+        }
+    }
+    .bix-buttons {
+        &:after {
+            content: "";
+            height: 70px;
+            width: 33px;
+            background-image: url("../img/hero/shape-3.png");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            position: absolute;
+            bottom: -40px;
+            right: 200px;
+            z-index: -1;
+        }
+    }
+}
+
+/* Responsive */
+@media screen and (max-width: 1399px) {
+    .section-hero {
+        &:before {
+            height: 200px;
+            width: 750px;
+        }
+        &:after {
+            height: 200px;
+            width: 750px;
+        }
+    }
+    .bix-hero-img {
+        .hero-inner-img {
+            &:before {
+                height: 450px;
+                width: 450px;
+            }
+            &:after {
+                height: 400px;
+                width: 400px;
+            }
+        }
+    }
+    .bix-hero-contact {
+        h1 {
+            &:after {
+                right: 0;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .section-hero {
+        &:before {
+            height: 130px;
+            width: 600px;
+        }
+        &:after {
+            height: 130px;
+            width: 600px;
+        }
+    }
+    .bix-hero-img {
+        .hero-inner-img {
+            &:after {
+                height: 350px;
+                width: 350px;
+            }
+            &:before {
+                height: 400px;
+                width: 400px;
+            }
+        }
+    }
+    .bix-hero-contact {
+        &:before {
+            top: 0;
+            left: 0;
+        }
+        .bix-buttons {
+            &:after {
+                right: 100px;
+            }
+        }
+        h1 {
+            &:after {
+                height: 50px;
+                width: 50px;
+                right: 50px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .section-hero {
+        &:before {
+            height: 100px;
+            width: 450px;
+        }
+        &:after {
+            height: 100px;
+            width: 450px;
+        }
+    }
+
+    .bix-hero-contact {
+        &:before {
+            display: none;
+        }
+        .bix-buttons {
+            &:after {
+                display: none;
+            }
+        }
+    }
+    .bix-hero-img {
+        .hero-inner-img {
+            &:before {
+                height: 450px;
+                width: 450px;
+                bottom: -35px;
+                left: -9px;
+            }
+            &:after {
+                height: 400px;
+                width: 400px;
+                bottom: -12px;
+                left: -9px;
+            }
+        }
+    }
+    .bix-hero-contact {
+        h1 {
+            &:after {
+                right: 300px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .bix-hero-contact {
+        h1 {
+            &:after {
+                right: 200px;
+            }
+        }
+    }
+    .bix-hero-img {
+        .hero-inner-img {
+            &:before {
+                height: 450px;
+                width: 450px;
+            }
+            &:after {
+                height: 400px;
+                width: 400px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .bix-hero-img {
+        .hero-inner-img {
+            &:before {
+                height: 280px;
+                width: 280px;
+                bottom: -20px;
+                left: -10px;
+            }
+            &:after {
+                height: 260px;
+                width: 260px;
+                bottom: -9px;
+                left: -10px;
+            }
+        }
+        &:after {
+            width: 30px;
+            bottom: -70px;
+            opacity: 0.5;
+        }
+    }
+    .bix-hero-contact {
+        h1 {
+            &:after {
+                display: none;
+            }
+        }
+        .bix-buttons {
+            &:after {
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .section-hero {
+        &:before {
+            width: 100%;
+        }
+        &:after {
+            width: 100%;
+        }
+    }
+}

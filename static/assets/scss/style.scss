@@ -1,0 +1,67 @@
+/*-----------------------------------------------------------------------------------
+
+Item Name: Biox - Personal Portfolio HTML Tailwind CSS Template.
+Author: Maraviya Infotech
+Version: 1
+Copyright 2024
+
+-----------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------
+    Included CSS INDEX
+-----------------------------------------------------------------------------------
+
+01. Typography
+
+02. Utilities
+    - mixing
+    - variables
+
+03. components
+    - header
+    - footer
+    - common
+
+04. Layout 
+    - hero
+    - about
+    - achievement
+    - projects
+    - services
+    - hire
+    - testimonials
+    - blog
+    - modal
+
+05. Pages
+    - prices
+    - faq
+    - resume
+    - single-projects
+    - blog-detail
+
+-----------------------------------------------------------------------------------*/
+
+/* Typography ( Import Typography ) */
+@import "base/_typography";
+
+/* Utilities ( Import Utilities ) */
+@import "utilities/_mixing";
+@import "utilities/_variables";
+
+/* components ( Import components ) */
+@import "components/_common";
+@import "components/_header";
+@import "components/_footer";
+@import "components/_tools-sidebar";
+
+/* Layouts ( Import Layouts ) */
+@import "layouts/_hero";
+@import "layouts/_about";
+@import "layouts/_achievement";
+@import "layouts/_services";
+@import "layouts/_testimonials";
+@import "layouts/_blog";
+@import "layouts/_modal";
+
+

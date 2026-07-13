@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+        {% include "includes/head.html" %}
+{% endblock %}
+
+{% block title %}صفحه اصلی - نمونه کار شخصی{% endblock %}
+
+{% block header %}
+    {% include "includes/header.html" %}
+{% endblock %}
+
+{% block mobile_menu %}
+    {% include "includes/mobile_menu.html" %}
+{% endblock %}
+
+{% block content %}
+    <!-- Hero -->
+    {% include "includes/hero.html" %}
+
+    <!-- About -->
+    {% include "includes/about.html" %}
+
+    <!-- Achievement (Education & Experience) -->
+    {% include "includes/achievement.html" %}
+
+    <!-- Services -->
+    {% include "includes/services.html" %}
+
+    <!-- Projects -->
+    {% include "includes/projects.html" %}
+
+    <!-- Hire -->
+    {% include "includes/hire.html" %}
+
+    <!-- Testimonials -->
+    {% include "includes/testimonials.html" %}
+
+    <!-- Blog -->
+    {% include "includes/blog.html" %}
+{% endblock %}
+
+{% block footer %}
+    {% include "includes/footer.html" %}
+{% endblock %}
+
+{% block modal_hire %}
+    {% include "includes/modal_hire.html" %}
+{% endblock %}
+
+{% block tools_sidebar %}
+    {% include "includes/tools_sidebar.html" %}
+{% endblock %}
+
+{% block scripts %}
+    {% include "includes/scripts.html" %}
+{% endblock %}

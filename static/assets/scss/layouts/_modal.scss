@@ -1,0 +1,75 @@
+/* modal */
+@keyframes fadeInDown {
+    0% {
+        transform: translateY(3rem);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOutUp {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(3rem);
+    }
+}
+ul#contact_tabs {
+    li.active {
+        a {
+            border: 0;
+            background-color: $black;
+            color: $white;
+        }
+    }
+}
+
+.bix-modal {
+    transform: translate(-50%, -50%);
+        .tab-popup {
+            @include ease3;
+            display: none !important;
+        }
+        .tab-popup.tab-active-popup {
+            display: block !important;
+        }
+}
+
+.bix-overflow-hidden {
+    overflow: hidden;
+}
+
+.bix-fadeInDown {
+    animation: fadeInDown 0.3s ease-in-out forwards;
+}
+
+.bix-fadeOutUp {
+    animation: fadeOutUp 0.2s ease-in-out forwards;
+}
+
+.bix-modal {
+    .modal-content {
+        .modal-body {
+            .form-group {
+                input,
+                select,
+                textarea {
+                    &::placeholder {
+                        font-size: 14px;
+                        font-weight: 400;
+                        color: $text-555;
+                    }
+                }
+                select {
+                    font-size: 14px;
+                    box-shadow: none;
+                }
+                textarea {
+                    height: auto;
+                }
+            }
+        }
+    }
+}

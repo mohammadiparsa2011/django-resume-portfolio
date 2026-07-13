@@ -1,0 +1,226 @@
+/* about */
+.section-about {
+    &:before {
+        content: "";
+        height: 200px;
+        width: 165px;
+        background-image: url("../img/about/shape-1.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+    &:after {
+        content: "";
+        height: 120px;
+        width: 70px;
+        background-image: url("../img/about/shape-2.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: -1;    
+        opacity: .3;
+    }
+    .container {
+        position: relative;
+        &:before {
+            content: "";
+            height: 50px;
+            width: 50px;
+            background-image: url("../img/about/shape-3.png");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            position: absolute;
+            top: 0;
+            left: 150px;
+            z-index: -1;
+        }
+    }
+}
+
+.bix-about-contact {
+    h5 {
+        text-shadow: 
+        1px  1px     $black-off, 
+       -1px  1px     $black-off, 
+        1px -1px     $black-off, 
+       -1px -1px     $black-off;
+    }
+}
+
+.bix-rounded-circle {
+    @keyframes rotateText {
+        0% {
+            transform: rotate(360deg);
+        }
+        100% {
+            transform: rotate(0deg);
+        }
+    }
+    &:hover {
+        svg {
+            animation: rotateText 10s linear infinite;
+        }
+    }
+    h5 {
+        font-size: 10px;
+        color: $white;
+    }
+}
+
+.bix-about-img {
+    &:hover {
+        .inner-item {
+            opacity: 1;
+            right: 8px;
+        }
+    }
+    .inner-item {
+        .box-inner {
+            &:after {
+                content: "";
+                height: 30px;
+                width: 60px;
+                background-image: url("../img/about/round-shape.png");
+                background-repeat: no-repeat;
+                background-size: 100%;
+                position: absolute;
+                top: -4px;
+                left: -33px;
+                transform: rotate(90deg);
+                z-index: 0;
+            }
+            a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+}
+
+.bix-skill {
+    .skill-inner-box {
+        &:hover {
+            .skill-logo {
+                opacity: 1;
+                top: -10px;
+            }
+        }
+        .skill-logo {
+            a {
+                &:after {
+                    content: "";
+                    height: 25px;
+                    width: 67px;
+                    background-image: url("../img/about/round-shape.png");
+                    background-repeat: no-repeat;
+                    background-size: 100%;
+                    position: absolute;
+                    top: 9px;
+                    left: -20px;
+                    z-index: -1;
+                }
+            }
+        }
+        .skill-contact {
+            .progress {
+                .fill {
+                    stroke-dasharray: 219.99078369140625;
+                    stroke-dashoffset: -219.99078369140625;
+                    transition: stroke-dashoffset 1s;
+                    stroke-width: 1;
+                }
+                .track {
+                    stroke-width: 6;
+                    stroke: rgba(221, 221, 221, 0) !important;
+                }
+                .track, .fill {
+                    fill: rgba(0, 0, 0, 0);
+                    transform: rotate(90deg) translate(0px, -80px);
+                    stroke: $black-off;
+                }
+                text {
+                    text-anchor: middle;
+                    font-weight: 500;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+.bix-block-skill {
+    display: block;
+}
+
+.bix-aboutpage-img {
+    &:after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: $bg-lightness;
+        border: 1px solid $border-lightness;
+        position: absolute;
+        z-index: -1;
+        right: 0;
+        bottom: 0;
+        border-radius: 40%;
+    }
+}
+
+/* Responsive */
+@media screen and (max-width: 1199px) {
+    .section-about {
+        &:before {
+            height: 120px;
+            width: 100px;
+        }
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .section-about {
+        .container {
+            &:before {
+                left: auto;
+                right: 0;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .bix-about-img {
+        .bix-about-detail {
+            height: 100px;
+            width: 100px;
+            bottom: 20px;
+            right: 20px;
+
+            .inner-contact {
+                height: 100px;
+                width: 100px;
+            }
+
+            .bix-rounded {
+                height: 90px;
+                width: 90px;
+
+                span {
+                    font-size: 8px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 310px) {
+    .bix-about-detail {
+        display: none;
+    }
+}

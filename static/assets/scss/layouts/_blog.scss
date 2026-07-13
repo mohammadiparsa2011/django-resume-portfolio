@@ -1,0 +1,15 @@
+/* blog */
+.bix-blog-box {
+    .blog-contact {
+        h4 {
+            display: -webkit-box; 
+            -webkit-line-clamp: 1; 
+            -webkit-box-orient: vertical;
+        }
+        p {
+            display: -webkit-box; 
+            -webkit-line-clamp: 3; 
+            -webkit-box-orient: vertical;
+        }
+    }
+}

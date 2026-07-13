@@ -1,0 +1,13 @@
+/* footer */
+.bix-footer-contact {
+    .logo-links{
+        a{
+            &:hover{
+                i{
+                    color: $white;
+                }
+            }
+        }
+    }
+}
+

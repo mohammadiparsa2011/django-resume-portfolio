@@ -1,0 +1,854 @@
+/* Dark */
+$black: #1d1e24;
+$off_black: #14151a;
+$border-color: #3f4458;
+$title-color: #ced2d9;
+$text-color: #9ba5b5;
+$white_03: rgba(255, 255, 255, 0.03);
+$header_shadow: 0 0 10px 0 rgba(255, 255, 255, 0.12);
+
+body {
+    background-color: $black;
+}
+
+p,
+li,
+a {
+    color: $text-color !important;
+}
+
+header {
+    .bix-navbar {
+        background-color: $off_black;
+        border-color: $border-color;
+    }
+}
+
+.navbar-toggler {
+    border-color: $border-color;
+    i {
+        color: $text-color;
+    }
+}
+
+.bix-logo {
+    display: none;
+}
+
+.dark-logo {
+    padding: 0 15px;
+    display: flex;
+}
+
+.bix-main-menu {
+    ul {
+        li {
+            a {
+                color: $text-color;
+                i {
+                    color: $text-color;
+                }
+            }
+        }
+        li.dropdown {
+            ul.sub-menu {
+                background: $black;
+            }
+            ul {
+                li {
+                    a {
+                        color: $text-color;
+                    }
+                }
+            }
+        }
+    }
+}
+.skill-box-contact {
+    p {
+        color: #495461 !important;
+    }
+}
+.bix-mobile-menu {
+    background-color: $black;
+    .bix-menu-title {
+        .menu-title {
+            h4 {
+                color: $title-color;
+            }
+        }
+    }
+    .bix-menu-inner {
+        .bix-menu-content {
+            ul {
+                li {
+                    a {
+                        border-color: $border-color;
+                        color: $text-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.bix-fixed {
+    .bix-navbar {
+        background-color: rgba(20, 21, 26, .8);
+        border-color: #404457;
+    }
+}
+.section-hero {
+    .first-name, .last-name {
+        color: #1d1e24;
+        text-shadow: 2px 2px #404457, -2px 2px #404457, 2px -2px #404457, -2px -2px #404457;
+        opacity: 0.09;
+    }
+}
+
+.bix-hero-contact {
+    &:before {
+        background-image: url("../img/hero/shape-1-dark.png");
+    }
+    &:after {
+        background-image: url("../img/hero/shape-2-dark.png");
+    }
+    h1 {
+        color: $title-color;
+        &:after {
+            background-image: url("../img/hero/shape-two-dark.png");
+        }
+    }
+    p {
+        color: $text-color;
+    }
+}
+
+.section-about {
+    &:before {
+        background-image: url("../img/about/shape-1-dark.png");
+    }
+    &:after {
+        background-image: url("../img/about/shape-2-dark.png");
+    }
+}
+
+.section-achievement {
+    &:before {
+        background-image: url("../img/achieve/shape-1-dark.png");
+    }
+    &:after {
+        background-image: url("../img/achieve/shape-2-dark.png");
+    }
+}
+
+.bix-hero-img {
+    .hero-inner-img {
+        &:after {
+            background-image: url("../img/hero/shape-one-dark.png");
+        }
+        &:before {
+            background-image: url("../img/hero/border-one-dark.png");
+        }
+    }
+}
+
+.bix-about-img {
+    border-color: $border-color;
+    .inner-item {
+        .box-inner {
+            &:after {
+                background-image: url("../img/about/round-shape-dark.png");
+            }
+        }
+    }
+}
+
+.section-services {
+    &:before {
+        background-image: url("../img/services/shape-1-dark.png");
+    }
+}
+
+.section-testimonials {
+    &:after {
+        background-image: url("../img/testimonials/shape-dark.png");
+    }
+}
+
+.section-hero {
+    &:before {
+        opacity: 0.1;
+    }
+    &::after {
+        opacity: 0.1;
+    }
+}
+
+.bix-button {
+    background-color: $black;
+    border-color: $border-color;
+    color: $text-color;
+}
+
+.bix-banner {
+    h4 {
+        color: $title-color;
+    }
+}
+
+.bix-banner-line {
+    .inner-border {
+        &:after {
+            background-color: #404457;
+        }
+        &:before {
+            background-color: $text-color;
+            border-color: #1d1e24;
+        }
+    }
+}
+.bix-hero-contact {
+    &:before, &:after {
+        opacity: .3;
+    }
+}
+.bix-about-contact {
+    h5 {
+        color: #1d1e24;
+        text-shadow: 1px 1px #3e4255, -1px 1px #3e4255, 1px -1px #3e4255, -1px -1px #3e4255;
+        opacity: 0.7;
+    }
+    .about-name {
+        h6 {
+            color: $text-color;
+        }
+        p {
+            color: $text-color !important;
+        }
+    }
+    p {
+        color: $text-color !important;
+    }
+}
+
+ul.nav-tabs {
+    border-color: $border-color;
+    li {
+        button {
+            color: $text-color !important;
+        }
+    }
+}
+.bix-achievement-inner.bix-border-r, .bix-achievement-inner.bix-border-l {
+    border-color: $border-color !important;
+}
+.bix-achievement {
+    .bix-achievement-inner {
+        .bix-achievement-box {
+            background-color: $off-black;
+            border-color: $border-color;
+            h4 {
+                color: $title-color;
+                span {
+                    color: $text-color;
+                }
+            }
+            .achievement-year {
+                span {
+                    background-color: $off-black;
+                    border-color: #6c7083;
+                    color: $text-color;
+                }
+                &:after {
+                    color: $border-color;
+                }
+            }
+            p {
+                color: $text-color;
+            }
+        }
+        .bix-achievement-box.left, .bix-achievement-box.right {
+            &:after {
+                background-color: #404457;
+            }
+        }
+    }
+    .border-r {
+        border-color: $border-color;
+        &:before {
+            background-color: $border-color;
+            border-color: #1d1e24;
+        }
+    }
+    .border-l {
+        border-color: $border-color;
+        &:before {
+            background-color: $border-color;
+            border-color: #1d1e24;
+        }
+    }
+}
+
+.bix-services {
+    .services-image {
+        .ring {
+            border-color: #404457;
+        }
+        img {
+            background-color: $black;
+            border-color: $border-color;
+            outline-color: $black;
+        }
+        .inner-image {
+            background: #1d1e24;
+            &:before {
+                background-image: url("../img/services/right-shape-dark.png");
+            }
+            &:after {
+                background-image: url("../img/services/left-shape-dark.png");
+            }
+        }
+    }
+}
+
+.bix-projects-tabs {
+    ul {
+        background-color: $off-black;
+        border-color: $border-color;
+        li {
+            color: $text-color !important;
+            border-color: #3c4051 !important;
+        }
+        li.active{
+            background-color: #343746 !important;
+            color: $title-color !important;
+            border-color: #3c4051 !important;
+        }
+    }
+}
+ul#contact_tabs {
+    li.active {
+        a {
+            background-color: #373a49 !important;
+        }
+    }
+}
+.bix-project-card {
+    .project-contact {
+        border-color: $border-color;
+        h5 {
+            a {
+                color: $title-color;
+            }
+        }
+        p {
+            color: $title-color !important;
+            a {
+                color: $title-color;
+            }
+        }
+    }
+}
+
+.bix-hire-banner {
+    .bix-hire-contact {
+        .inner-circle-items {
+            .bix-rounded-circle {
+                background-color: $off_black;
+                .inner-contact {
+                    i {
+                        color: $title-color;
+                    }
+                }
+                svg {
+                    text {
+                        textPath {
+                            color: $title-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.bix-testimonials {
+    .inner-banner {
+        h4 {
+            color: #1d1e24;
+            text-shadow: 1px 1px #404457, -1px 1px #404457, 1px -1px #404457, -1px -1px #404457;
+            opacity: 0.3;
+        }
+    }
+    .bix-testimonials-inner {
+        .testimonials-contact {
+            h4 {
+                color: $title-color;
+            }
+            .inner-contact {
+                border-color: $border-color;
+                background-color: #14151a;
+            }
+        }
+    }
+}
+
+.bix-blog-box {
+    border-color: $border-color;
+    .blog-contact {
+        h4 {
+            a {
+                color: $title-color;
+            }
+        }
+    }
+}
+
+footer {
+    background-color: $off-black !important;
+}
+.bix-rounded-circle {
+    svg {
+        fill: #fff;
+    }
+}
+.bix-skill {
+    .skill-inner-box {
+        .skill-logo {
+            a {
+                background-color: $off-black;
+                border-color: $border-color;
+                &:after {
+                    background-image: url("../img/about/round-shape-dark.png");
+                }
+            }
+        }
+    }
+}
+
+a.back-to-top {
+    background-color: $black;
+}
+
+.bix-footer-contact {
+    p {
+        color: $text-color;
+    }
+    .logo-links {
+        a {
+            border-color: $border-color;
+            i {
+                color: $text-color;
+            }
+            &:hover {
+                i {
+                    color: $title-color;
+                }
+            }
+        }
+    }
+}
+
+.white-mode {
+    display: none;
+}
+
+.dark-mode {
+    display: inline;
+}
+
+.bix-aboutpage-img {
+    &:after {
+        background-color: $off-black;
+        border-color: $border-color;
+    }
+}
+ul.nav-tabs {
+    li {
+        button.active {
+            border: 1px solid #404457 !important;
+            background-color: #14151a !important;
+        }
+    }
+}
+.bix-accordion-item {
+    h4 {
+        background-color: #14151a;
+        color: $title-color;
+        border-color: $border-color;
+    }
+    .bix-accordion-body {
+        border-color: $border-color;
+        color: $text-color;
+    }
+}
+.bix-services-box {
+    border-color: $border-color;
+    background: #14151a;
+    .services-header {
+        border-color: $border-color;
+        span {
+            color: $text-color;
+        }
+        h4 {
+            color: $title-color;
+        }
+    }
+    .services-inner-contact {
+        ul {
+            li {
+                color: $text-color;
+            }
+        }
+    }
+    &:hover {
+        border-color: $text-color;
+        .services-header {
+            border-color: $text-color;
+        }
+    }
+}
+.services-contact {
+    p {
+        color: #111a24 !important;
+    }
+}
+ul#bix_activity {
+    li.active {
+        a {
+            background-color: #404457 !important;
+        }
+    }
+}
+.bix-faq {
+    .accordion-item {
+        .accordion-body {
+            border-color: $border-color;
+            color: $text-color;
+        }
+        .accordion-header {
+            border-color: $border-color;
+            .accordion-button {
+                background-color: $off-black;
+                color: $title-color;
+            }
+        }
+    }
+}
+
+.bix-resume-sidebar {
+    background-color: $off-black;
+    border-color: $border-color;
+    .inner-contact {
+        &:not(:last-child){
+            border-color: $border-color;
+        }
+    }
+    .resume-title {
+        h4 {
+            color: $title-color;
+        }
+    }
+    .resume-contact-info {
+        ul {
+            li {
+                a {
+                    color: $text-color;
+                }
+                i {
+                    color: $text-color;
+                }
+            }
+        }
+    }
+    .resume-education-info {
+        span {
+            color: $text-color;
+        }
+        h4 {
+            color: $title-color;
+        }
+    }
+}
+
+.bix-resume-contact {
+    .sub-heading {
+        background-color: $off-black;
+        border-color: $border-color;
+        .inner-heading {
+            h4 {
+                color: $title-color;
+            }
+            span {
+                color: $text-color;
+            }
+        }
+    }
+    .inner-resume-contact {
+        .inner-title {
+            h5 {
+                color: $title-color;
+            }
+        }
+        .inner-experience {
+            background-color: $black;
+            border-color: $border-color;
+            h5 {
+                color: $title-color;
+            }
+            .experience-value {
+                span {
+                    color: $text-color;
+                }
+            }
+        }
+        .inner-project {
+            background-color: $black;
+            border-color: $border-color;
+            h5 {
+                color: $title-color;
+            }
+            a {
+                color: $text-color;
+            }
+        }
+        .resume-about ,
+        .resume-experience ,
+        .resume-project {
+            background-color: $off-black;
+            border-color: $border-color;
+        }
+
+    }
+}
+
+.bix-single-projects-sidebar {
+    background-color: $off-black;
+    border-color: $border-color;
+    .sub-title {
+        h4 {
+            color: $title-color;
+        }
+    }
+    .bix-category,
+    .bix-recent-post {
+        border-color: $border-color;
+    }
+    .bix-recent-card {
+        border-color: $border-color;
+        .recent-contact {
+            span {
+                color: $text-color;
+            }
+            h4 {
+                a {
+                    color: $title-color;
+                }
+            }
+        }
+    }
+}
+
+ul.nav-tabs{
+    background-color: $black;
+}
+
+.bix-single-projects-contact {
+    .inner-projects-contact {
+        .sub-title {
+            h4 {
+                color: $title-color;
+            }
+        }
+        .inner-contact {
+            h4 {
+                color: $title-color;
+            }
+        }
+    }
+    .bix-product-details {
+        .bix-product-details-card {
+            background-color: $off-black;
+            border-color: $border-color;
+            h4 {
+                color: $title-color;
+            }
+            p {
+                color: $text-color;
+            }
+            &:hover {
+                border-color: $text-color;
+            }
+        }
+    }
+    .bix-products-tabs {
+        .tab-content {
+            border-color: $border-color;
+            .products-tabs-details {
+                .inner-contact {
+                    h4 {
+                        color: $title-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.bix-client {
+    .inner-details {
+        border-color: $border-color;
+        .client-details {
+            h5 {
+                color: $title-color;
+            }
+        }
+    }
+}
+
+.bix-reviews-details {
+    h4 {
+        color: $title-color;
+    }
+    .bix-input input,
+    .bix-input textarea {
+        background-color: $black;
+        border-color: $border-color;
+        color: $text-color;
+        &::placeholder {
+            color: $text-color;
+        }
+    }
+}
+
+.bix-blog-sidebar {
+    background-color: $off-black;
+    border-color: $border-color;
+    .inner-details {
+        border-color: $border-color;
+        .inner-blog-contact {
+            span {
+                color: $text-color;
+            }
+            h4 {
+                color: $title-color;
+            }
+        }
+    }
+    .sub-title {
+        h4 {
+            color: $title-color;
+        }
+    }
+    .bix-categories {
+        border-color: $border-color;
+        .inner-categories {
+            ul {
+                li {
+                    a {
+                        color: $text-color;
+                    }
+                }
+            }
+        }
+    }
+    .bix-recent-post {
+        border-color: $border-color;
+        .bix-recent-card {
+            border-color: $border-color;
+            .recent-contact {
+                span {
+                    color: $text-color;
+                }
+                h4 {
+                    a {
+                        color: $title-color;
+                    }
+                }
+            }
+        }
+    }
+    .bix-blog-sub-details {
+        .blog-rows-card {
+            border-color: $border-color;
+            .inner-contact {
+                p {
+                    color: $text-color;
+                }
+                h5 {
+                    a {
+                        color: $title-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.bix-blog-contact {
+    .inner-main-contact {
+        border-color: $border-color;
+        .main-blog-contact {
+            border-color: $border-color;
+            .main-title {
+                h4 {
+                    color: $title-color;
+                }
+            }
+        }
+    }
+    .inner-replies-contact {
+        border-color: $border-color;
+        .main-title {
+            h4 {
+                color: $title-color;
+            }
+        }
+    }
+}
+
+.bix-tools-sidebar {
+    background-color: $black;
+    .bix-bar-title {
+        border-color: $border-color;
+        h6 {
+            color: $title-color;
+        }
+    }
+    .bix-tools-detail {
+        .bix-tools-block {
+            h3 {
+                color: $title-color;
+            }
+            .bix-tools-rtl,
+            .bix-tools-dark {
+                .bix-tools-item {
+                    img {
+                        border-color: $border-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.bix-modal {
+    .modal-content {
+        background-color: $black;
+        .modal-body {
+            .form-group {
+                input,
+                select,
+                textarea {
+                    background-color: $off-black;
+                    border-color: $border-color;
+                    color: $text-color;
+                    &::placeholder {
+                        color: $text-color;
+                    }
+                }
+            }
+        }
+    }
+}

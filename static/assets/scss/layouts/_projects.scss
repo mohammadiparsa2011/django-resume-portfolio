@@ -1,0 +1,189 @@
+/* Projects */
+
+.bix-projects-tabs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    ul {
+        margin-bottom: 30px;
+        padding: 5px;
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        background-color: $bg-lightness;
+        align-items: center;
+        border: 1px solid $black-0;
+        border-radius: 30px;
+
+        li {
+            transition: 0.25s ease-out !important;
+            margin: 5px;
+            border-radius: 20px !important;
+            padding: 5px 15px;
+            color: $black-off !important;
+            cursor: pointer;
+        }
+
+        &:nth-child(1) {
+            transform: translateX(0);
+        }
+
+        &:nth-child(2) {
+            transform: translateX(100%);
+        }
+
+        li.active {
+            background-color: $black-off !important;
+            color: $white !important;
+        }
+    }
+}
+
+.bix-project-card {
+    &:hover {
+        .project-image {
+            img {
+                transform: scale(1.1) rotate(5deg);
+            }
+        }
+    }
+
+    .project-image {
+        position: relative;
+        padding: 0 30px 30px 30px;
+        overflow: hidden;
+        border-radius: 30px;
+        z-index: 1;
+
+        a {
+            display: flex;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        img {
+            @include ease3;
+            width: 100%;
+        }
+
+        &:hover {
+            .overlay-project-card {
+                opacity: 1;
+            }
+        }
+
+        .overlay-project-card {
+            @include ease3;
+            opacity: 0;
+            width: calc(100% - 60px);
+            height: calc(100% - 30px);
+            position: absolute;
+            top: 0;
+            right: 30px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $black-05;
+            z-index: 45;
+            overflow: hidden;
+
+            &:after {
+                font-family: $remixico;
+                content: "\EA12";
+                font-size: 24px;
+                font-weight: 600;
+                color: $white;
+            }
+        }
+    }
+
+    .project-contact {
+        padding: 170px 30px 30px 30px;
+        margin-top: -175px;
+        position: relative;
+        z-index: 0;
+        border: 1px solid $black-0;
+        border-radius: 30px;
+
+        h5 {
+            margin-bottom: 2px;
+            font-size: 18px;
+
+            a {
+                @include ease3;
+                font-size: 18px;
+                font-weight: 700;
+                color: $black-off;
+                &:hover {
+                    color: $primary;
+                }
+            }
+        }
+
+        span {
+            font-size: 14px;
+            color: $text-999;
+        }
+
+        p {
+            margin-top: 4px;
+            font-size: 14px;
+            line-height: 22px;
+
+            a {
+                @include ease3;
+                color: $black;
+                font-weight: 500;
+                &:hover {
+                    color: $primary;
+                }
+            }
+        }
+    }
+}
+
+.fancybox-image,
+.fancybox-spaceball {
+    padding: 12px;
+}
+
+/* Responsive */
+@media screen and (max-width: 1399px) {
+    .bix-project-card {
+        .project-contact {
+            h5 {
+                a {
+                    font-size: 17px;
+                }
+            }
+
+            span {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .bix-project-card {
+        .project-contact {
+            padding: 175px 20px 20px 20px;
+        }
+
+        .project-image {
+            padding: 0 20px 20px 20px;
+
+            .overlay-project-card {
+                padding: 0;
+                width: calc(100% - 40px);
+                height: calc(100% - 20px);
+                top: 0;
+                bottom: 0;
+                right: 20px;
+                left: 20px;
+            }
+        }
+    }
+}

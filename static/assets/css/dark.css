@@ -1,0 +1,654 @@
+/* Dark */
+body {
+  background-color: #1d1e24;
+}
+
+p,
+li,
+a {
+  color: #9ba5b5 !important;
+}
+
+header .bix-navbar {
+  background-color: #14151a;
+  border-color: #3f4458;
+}
+
+.navbar-toggler {
+  border-color: #3f4458;
+}
+.navbar-toggler i {
+  color: #9ba5b5;
+}
+
+.bix-logo {
+  display: none;
+}
+
+.dark-logo {
+  padding: 0 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.bix-main-menu ul li a {
+  color: #9ba5b5;
+}
+.bix-main-menu ul li a i {
+  color: #9ba5b5;
+}
+.bix-main-menu ul li.dropdown ul.sub-menu {
+  background: #1d1e24;
+}
+.bix-main-menu ul li.dropdown ul li a {
+  color: #9ba5b5;
+}
+
+.skill-box-contact p {
+  color: #495461 !important;
+}
+
+.bix-mobile-menu {
+  background-color: #1d1e24;
+}
+.bix-mobile-menu .bix-menu-title .menu-title h4 {
+  color: #ced2d9;
+}
+.bix-mobile-menu .bix-menu-inner .bix-menu-content ul li a {
+  border-color: #3f4458;
+  color: #9ba5b5;
+}
+
+.bix-fixed .bix-navbar {
+  background-color: rgba(20, 21, 26, 0.8);
+  border-color: #404457;
+}
+
+.section-hero .first-name, .section-hero .last-name {
+  color: #1d1e24;
+  text-shadow: 2px 2px #404457, -2px 2px #404457, 2px -2px #404457, -2px -2px #404457;
+  opacity: 0.09;
+}
+
+.bix-hero-contact:before {
+  background-image: url("../img/hero/shape-1-dark.png");
+}
+.bix-hero-contact:after {
+  background-image: url("../img/hero/shape-2-dark.png");
+}
+.bix-hero-contact h1 {
+  color: #ced2d9;
+}
+.bix-hero-contact h1:after {
+  background-image: url("../img/hero/shape-two-dark.png");
+}
+.bix-hero-contact p {
+  color: #9ba5b5;
+}
+
+.section-about:before {
+  background-image: url("../img/about/shape-1-dark.png");
+}
+.section-about:after {
+  background-image: url("../img/about/shape-2-dark.png");
+}
+
+.section-achievement:before {
+  background-image: url("../img/achieve/shape-1-dark.png");
+}
+.section-achievement:after {
+  background-image: url("../img/achieve/shape-2-dark.png");
+}
+
+.bix-hero-img .hero-inner-img:after {
+  background-image: url("../img/hero/shape-one-dark.png");
+}
+.bix-hero-img .hero-inner-img:before {
+  background-image: url("../img/hero/border-one-dark.png");
+}
+
+.bix-about-img {
+  border-color: #3f4458;
+}
+.bix-about-img .inner-item .box-inner:after {
+  background-image: url("../img/about/round-shape-dark.png");
+}
+
+.section-services:before {
+  background-image: url("../img/services/shape-1-dark.png");
+}
+
+.section-testimonials:after {
+  background-image: url("../img/testimonials/shape-dark.png");
+}
+
+.section-hero:before {
+  opacity: 0.1;
+}
+.section-hero::after {
+  opacity: 0.1;
+}
+
+.bix-button {
+  background-color: #1d1e24;
+  border-color: #3f4458;
+  color: #9ba5b5;
+}
+
+.bix-banner h4 {
+  color: #ced2d9;
+}
+
+.bix-banner-line .inner-border:after {
+  background-color: #404457;
+}
+.bix-banner-line .inner-border:before {
+  background-color: #9ba5b5;
+  border-color: #1d1e24;
+}
+
+.bix-hero-contact:before, .bix-hero-contact:after {
+  opacity: 0.3;
+}
+
+.bix-about-contact h5 {
+  color: #1d1e24;
+  text-shadow: 1px 1px #3e4255, -1px 1px #3e4255, 1px -1px #3e4255, -1px -1px #3e4255;
+  opacity: 0.7;
+}
+.bix-about-contact .about-name h6 {
+  color: #9ba5b5;
+}
+.bix-about-contact .about-name p {
+  color: #9ba5b5 !important;
+}
+.bix-about-contact p {
+  color: #9ba5b5 !important;
+}
+
+ul.nav-tabs {
+  border-color: #3f4458;
+}
+ul.nav-tabs li button {
+  color: #9ba5b5 !important;
+}
+
+.bix-achievement-inner.bix-border-r, .bix-achievement-inner.bix-border-l {
+  border-color: #3f4458 !important;
+}
+
+.bix-achievement .bix-achievement-inner .bix-achievement-box {
+  background-color: #14151a;
+  border-color: #3f4458;
+}
+.bix-achievement .bix-achievement-inner .bix-achievement-box h4 {
+  color: #ced2d9;
+}
+.bix-achievement .bix-achievement-inner .bix-achievement-box h4 span {
+  color: #9ba5b5;
+}
+.bix-achievement .bix-achievement-inner .bix-achievement-box .achievement-year span {
+  background-color: #14151a;
+  border-color: #6c7083;
+  color: #9ba5b5;
+}
+.bix-achievement .bix-achievement-inner .bix-achievement-box .achievement-year:after {
+  color: #3f4458;
+}
+.bix-achievement .bix-achievement-inner .bix-achievement-box p {
+  color: #9ba5b5;
+}
+.bix-achievement .bix-achievement-inner .bix-achievement-box.right:after, .bix-achievement .bix-achievement-inner .bix-achievement-box.left:after {
+  background-color: #404457;
+}
+.bix-achievement .border-r {
+  border-color: #3f4458;
+}
+.bix-achievement .border-r:before {
+  background-color: #3f4458;
+  border-color: #1d1e24;
+}
+.bix-achievement .border-l {
+  border-color: #3f4458;
+}
+.bix-achievement .border-l:before {
+  background-color: #3f4458;
+  border-color: #1d1e24;
+}
+
+.bix-services .services-image .ring {
+  border-color: #404457;
+}
+.bix-services .services-image img {
+  background-color: #1d1e24;
+  border-color: #3f4458;
+  outline-color: #1d1e24;
+}
+.bix-services .services-image .inner-image {
+  background: #1d1e24;
+}
+.bix-services .services-image .inner-image:before {
+  background-image: url("../img/services/right-shape-dark.png");
+}
+.bix-services .services-image .inner-image:after {
+  background-image: url("../img/services/left-shape-dark.png");
+}
+
+.bix-projects-tabs ul {
+  background-color: #14151a;
+  border-color: #3f4458;
+}
+.bix-projects-tabs ul li {
+  color: #9ba5b5 !important;
+  border-color: #3c4051 !important;
+}
+.bix-projects-tabs ul li.active {
+  background-color: #343746 !important;
+  color: #ced2d9 !important;
+  border-color: #3c4051 !important;
+}
+
+ul#contact_tabs li.active a {
+  background-color: #373a49 !important;
+}
+
+.bix-project-card .project-contact {
+  border-color: #3f4458;
+}
+.bix-project-card .project-contact h5 a {
+  color: #ced2d9;
+}
+.bix-project-card .project-contact p {
+  color: #ced2d9 !important;
+}
+.bix-project-card .project-contact p a {
+  color: #ced2d9;
+}
+
+.bix-hire-banner .bix-hire-contact .inner-circle-items .bix-rounded-circle {
+  background-color: #14151a;
+}
+.bix-hire-banner .bix-hire-contact .inner-circle-items .bix-rounded-circle .inner-contact i {
+  color: #ced2d9;
+}
+.bix-hire-banner .bix-hire-contact .inner-circle-items .bix-rounded-circle svg text textPath {
+  color: #ced2d9;
+}
+
+.bix-testimonials .inner-banner h4 {
+  color: #1d1e24;
+  text-shadow: 1px 1px #404457, -1px 1px #404457, 1px -1px #404457, -1px -1px #404457;
+  opacity: 0.3;
+}
+.bix-testimonials .bix-testimonials-inner .testimonials-contact h4 {
+  color: #ced2d9;
+}
+.bix-testimonials .bix-testimonials-inner .testimonials-contact .inner-contact {
+  border-color: #3f4458;
+  background-color: #14151a;
+}
+
+.bix-blog-box {
+  border-color: #3f4458;
+}
+.bix-blog-box .blog-contact h4 a {
+  color: #ced2d9;
+}
+
+footer {
+  background-color: #14151a !important;
+}
+
+.bix-rounded-circle svg {
+  fill: #fff;
+}
+
+.bix-skill .skill-inner-box .skill-logo a {
+  background-color: #14151a;
+  border-color: #3f4458;
+}
+.bix-skill .skill-inner-box .skill-logo a:after {
+  background-image: url("../img/about/round-shape-dark.png");
+}
+
+a.back-to-top {
+  background-color: #1d1e24;
+}
+
+.bix-footer-contact p {
+  color: #9ba5b5;
+}
+.bix-footer-contact .logo-links a {
+  border-color: #3f4458;
+}
+.bix-footer-contact .logo-links a i {
+  color: #9ba5b5;
+}
+.bix-footer-contact .logo-links a:hover i {
+  color: #ced2d9;
+}
+
+.white-mode {
+  display: none;
+}
+
+.dark-mode {
+  display: inline;
+}
+
+.bix-aboutpage-img:after {
+  background-color: #14151a;
+  border-color: #3f4458;
+}
+
+ul.nav-tabs li button.active {
+  border: 1px solid #404457 !important;
+  background-color: #14151a !important;
+}
+
+.bix-accordion-item h4 {
+  background-color: #14151a;
+  color: #ced2d9;
+  border-color: #3f4458;
+}
+.bix-accordion-item .bix-accordion-body {
+  border-color: #3f4458;
+  color: #9ba5b5;
+}
+
+.bix-services-box {
+  border-color: #3f4458;
+  background: #14151a;
+}
+.bix-services-box .services-header {
+  border-color: #3f4458;
+}
+.bix-services-box .services-header span {
+  color: #9ba5b5;
+}
+.bix-services-box .services-header h4 {
+  color: #ced2d9;
+}
+.bix-services-box .services-inner-contact ul li {
+  color: #9ba5b5;
+}
+.bix-services-box:hover {
+  border-color: #9ba5b5;
+}
+.bix-services-box:hover .services-header {
+  border-color: #9ba5b5;
+}
+
+.services-contact p {
+  color: #111a24 !important;
+}
+
+ul#bix_activity li.active a {
+  background-color: #404457 !important;
+}
+
+.bix-faq .accordion-item .accordion-body {
+  border-color: #3f4458;
+  color: #9ba5b5;
+}
+.bix-faq .accordion-item .accordion-header {
+  border-color: #3f4458;
+}
+.bix-faq .accordion-item .accordion-header .accordion-button {
+  background-color: #14151a;
+  color: #ced2d9;
+}
+
+.bix-resume-sidebar {
+  background-color: #14151a;
+  border-color: #3f4458;
+}
+.bix-resume-sidebar .inner-contact:not(:last-child) {
+  border-color: #3f4458;
+}
+.bix-resume-sidebar .resume-title h4 {
+  color: #ced2d9;
+}
+.bix-resume-sidebar .resume-contact-info ul li a {
+  color: #9ba5b5;
+}
+.bix-resume-sidebar .resume-contact-info ul li i {
+  color: #9ba5b5;
+}
+.bix-resume-sidebar .resume-education-info span {
+  color: #9ba5b5;
+}
+.bix-resume-sidebar .resume-education-info h4 {
+  color: #ced2d9;
+}
+
+.bix-resume-contact .sub-heading {
+  background-color: #14151a;
+  border-color: #3f4458;
+}
+.bix-resume-contact .sub-heading .inner-heading h4 {
+  color: #ced2d9;
+}
+.bix-resume-contact .sub-heading .inner-heading span {
+  color: #9ba5b5;
+}
+.bix-resume-contact .inner-resume-contact .inner-title h5 {
+  color: #ced2d9;
+}
+.bix-resume-contact .inner-resume-contact .inner-experience {
+  background-color: #1d1e24;
+  border-color: #3f4458;
+}
+.bix-resume-contact .inner-resume-contact .inner-experience h5 {
+  color: #ced2d9;
+}
+.bix-resume-contact .inner-resume-contact .inner-experience .experience-value span {
+  color: #9ba5b5;
+}
+.bix-resume-contact .inner-resume-contact .inner-project {
+  background-color: #1d1e24;
+  border-color: #3f4458;
+}
+.bix-resume-contact .inner-resume-contact .inner-project h5 {
+  color: #ced2d9;
+}
+.bix-resume-contact .inner-resume-contact .inner-project a {
+  color: #9ba5b5;
+}
+.bix-resume-contact .inner-resume-contact .resume-about,
+.bix-resume-contact .inner-resume-contact .resume-experience,
+.bix-resume-contact .inner-resume-contact .resume-project {
+  background-color: #14151a;
+  border-color: #3f4458;
+}
+
+.bix-single-projects-sidebar {
+  background-color: #14151a;
+  border-color: #3f4458;
+}
+.bix-single-projects-sidebar .sub-title h4 {
+  color: #ced2d9;
+}
+.bix-single-projects-sidebar .bix-category,
+.bix-single-projects-sidebar .bix-recent-post {
+  border-color: #3f4458;
+}
+.bix-single-projects-sidebar .bix-recent-card {
+  border-color: #3f4458;
+}
+.bix-single-projects-sidebar .bix-recent-card .recent-contact span {
+  color: #9ba5b5;
+}
+.bix-single-projects-sidebar .bix-recent-card .recent-contact h4 a {
+  color: #ced2d9;
+}
+
+ul.nav-tabs {
+  background-color: #1d1e24;
+}
+
+.bix-single-projects-contact .inner-projects-contact .sub-title h4 {
+  color: #ced2d9;
+}
+.bix-single-projects-contact .inner-projects-contact .inner-contact h4 {
+  color: #ced2d9;
+}
+.bix-single-projects-contact .bix-product-details .bix-product-details-card {
+  background-color: #14151a;
+  border-color: #3f4458;
+}
+.bix-single-projects-contact .bix-product-details .bix-product-details-card h4 {
+  color: #ced2d9;
+}
+.bix-single-projects-contact .bix-product-details .bix-product-details-card p {
+  color: #9ba5b5;
+}
+.bix-single-projects-contact .bix-product-details .bix-product-details-card:hover {
+  border-color: #9ba5b5;
+}
+.bix-single-projects-contact .bix-products-tabs .tab-content {
+  border-color: #3f4458;
+}
+.bix-single-projects-contact .bix-products-tabs .tab-content .products-tabs-details .inner-contact h4 {
+  color: #ced2d9;
+}
+
+.bix-client .inner-details {
+  border-color: #3f4458;
+}
+.bix-client .inner-details .client-details h5 {
+  color: #ced2d9;
+}
+
+.bix-reviews-details h4 {
+  color: #ced2d9;
+}
+.bix-reviews-details .bix-input input,
+.bix-reviews-details .bix-input textarea {
+  background-color: #1d1e24;
+  border-color: #3f4458;
+  color: #9ba5b5;
+}
+.bix-reviews-details .bix-input input::-webkit-input-placeholder, .bix-reviews-details .bix-input textarea::-webkit-input-placeholder {
+  color: #9ba5b5;
+}
+.bix-reviews-details .bix-input input::-moz-placeholder, .bix-reviews-details .bix-input textarea::-moz-placeholder {
+  color: #9ba5b5;
+}
+.bix-reviews-details .bix-input input:-ms-input-placeholder, .bix-reviews-details .bix-input textarea:-ms-input-placeholder {
+  color: #9ba5b5;
+}
+.bix-reviews-details .bix-input input::-ms-input-placeholder, .bix-reviews-details .bix-input textarea::-ms-input-placeholder {
+  color: #9ba5b5;
+}
+.bix-reviews-details .bix-input input::placeholder,
+.bix-reviews-details .bix-input textarea::placeholder {
+  color: #9ba5b5;
+}
+
+.bix-blog-sidebar {
+  background-color: #14151a;
+  border-color: #3f4458;
+}
+.bix-blog-sidebar .inner-details {
+  border-color: #3f4458;
+}
+.bix-blog-sidebar .inner-details .inner-blog-contact span {
+  color: #9ba5b5;
+}
+.bix-blog-sidebar .inner-details .inner-blog-contact h4 {
+  color: #ced2d9;
+}
+.bix-blog-sidebar .sub-title h4 {
+  color: #ced2d9;
+}
+.bix-blog-sidebar .bix-categories {
+  border-color: #3f4458;
+}
+.bix-blog-sidebar .bix-categories .inner-categories ul li a {
+  color: #9ba5b5;
+}
+.bix-blog-sidebar .bix-recent-post {
+  border-color: #3f4458;
+}
+.bix-blog-sidebar .bix-recent-post .bix-recent-card {
+  border-color: #3f4458;
+}
+.bix-blog-sidebar .bix-recent-post .bix-recent-card .recent-contact span {
+  color: #9ba5b5;
+}
+.bix-blog-sidebar .bix-recent-post .bix-recent-card .recent-contact h4 a {
+  color: #ced2d9;
+}
+.bix-blog-sidebar .bix-blog-sub-details .blog-rows-card {
+  border-color: #3f4458;
+}
+.bix-blog-sidebar .bix-blog-sub-details .blog-rows-card .inner-contact p {
+  color: #9ba5b5;
+}
+.bix-blog-sidebar .bix-blog-sub-details .blog-rows-card .inner-contact h5 a {
+  color: #ced2d9;
+}
+
+.bix-blog-contact .inner-main-contact {
+  border-color: #3f4458;
+}
+.bix-blog-contact .inner-main-contact .main-blog-contact {
+  border-color: #3f4458;
+}
+.bix-blog-contact .inner-main-contact .main-blog-contact .main-title h4 {
+  color: #ced2d9;
+}
+.bix-blog-contact .inner-replies-contact {
+  border-color: #3f4458;
+}
+.bix-blog-contact .inner-replies-contact .main-title h4 {
+  color: #ced2d9;
+}
+
+.bix-tools-sidebar {
+  background-color: #1d1e24;
+}
+.bix-tools-sidebar .bix-bar-title {
+  border-color: #3f4458;
+}
+.bix-tools-sidebar .bix-bar-title h6 {
+  color: #ced2d9;
+}
+.bix-tools-sidebar .bix-tools-detail .bix-tools-block h3 {
+  color: #ced2d9;
+}
+.bix-tools-sidebar .bix-tools-detail .bix-tools-block .bix-tools-rtl .bix-tools-item img,
+.bix-tools-sidebar .bix-tools-detail .bix-tools-block .bix-tools-dark .bix-tools-item img {
+  border-color: #3f4458;
+}
+
+.bix-modal .modal-content {
+  background-color: #1d1e24;
+}
+.bix-modal .modal-content .modal-body .form-group input,
+.bix-modal .modal-content .modal-body .form-group select,
+.bix-modal .modal-content .modal-body .form-group textarea {
+  background-color: #14151a;
+  border-color: #3f4458;
+  color: #9ba5b5;
+}
+.bix-modal .modal-content .modal-body .form-group input::-webkit-input-placeholder, .bix-modal .modal-content .modal-body .form-group select::-webkit-input-placeholder, .bix-modal .modal-content .modal-body .form-group textarea::-webkit-input-placeholder {
+  color: #9ba5b5;
+}
+.bix-modal .modal-content .modal-body .form-group input::-moz-placeholder, .bix-modal .modal-content .modal-body .form-group select::-moz-placeholder, .bix-modal .modal-content .modal-body .form-group textarea::-moz-placeholder {
+  color: #9ba5b5;
+}
+.bix-modal .modal-content .modal-body .form-group input:-ms-input-placeholder, .bix-modal .modal-content .modal-body .form-group select:-ms-input-placeholder, .bix-modal .modal-content .modal-body .form-group textarea:-ms-input-placeholder {
+  color: #9ba5b5;
+}
+.bix-modal .modal-content .modal-body .form-group input::-ms-input-placeholder, .bix-modal .modal-content .modal-body .form-group select::-ms-input-placeholder, .bix-modal .modal-content .modal-body .form-group textarea::-ms-input-placeholder {
+  color: #9ba5b5;
+}
+.bix-modal .modal-content .modal-body .form-group input::placeholder,
+.bix-modal .modal-content .modal-body .form-group select::placeholder,
+.bix-modal .modal-content .modal-body .form-group textarea::placeholder {
+  color: #9ba5b5;
+}
+/*# sourceMappingURL=dark.css.map */

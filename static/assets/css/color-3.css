@@ -1,0 +1,68 @@
+/* color-3 */
+/* veriabal */
+::-moz-selection {
+  color: #f5885f;
+}
+::selection {
+  color: #f5885f;
+}
+
+.bix-main-menu ul li:hover > a {
+  color: #f5885f;
+}
+.bix-main-menu ul li.dropdown ul li a:hover {
+  color: #f5885f;
+}
+
+.bix-project-card .project-contact h5 a:hover {
+  color: #f5885f;
+}
+
+.bix-blog-box .blog-contact h4 a:hover {
+  color: #f5885f;
+}
+
+.bix-main-menu > ul > li:hover > a i {
+  color: #f5885f;
+}
+
+.bix-hero-contact h4 {
+  color: #f5885f;
+}
+
+.bix-hero-contact p span {
+  color: #f5885f;
+}
+
+.bix-button:hover {
+  background-color: #f5885f;
+  border-color: #f5885f;
+}
+
+.bix-banner h4 span {
+  color: #f5885f;
+}
+
+.bix-hire-banner .bix-hire-contact h2 span {
+  color: #f5885f;
+}
+
+a.back-to-top {
+  color: #f5885f;
+  border-color: #f5885f;
+}
+a.back-to-top svg path {
+  stroke: #f5885f;
+}
+
+.bix-tools-sidebar .bix-tools-detail .bix-tools-block .bix-tools-rtl .bix-tools-item img:hover,
+.bix-tools-sidebar .bix-tools-detail .bix-tools-block .bix-tools-dark .bix-tools-item img:hover {
+  border-color: #f5885f;
+}
+.bix-tools-sidebar .bix-tools-detail .bix-tools-block .bix-tools-rtl .active-mode img,
+.bix-tools-sidebar .bix-tools-detail .bix-tools-block .bix-tools-rtl .active-dark-mode img,
+.bix-tools-sidebar .bix-tools-detail .bix-tools-block .bix-tools-dark .active-mode img,
+.bix-tools-sidebar .bix-tools-detail .bix-tools-block .bix-tools-dark .active-dark-mode img {
+  border-color: #f5885f;
+}
+/*# sourceMappingURL=color-3.css.map */
