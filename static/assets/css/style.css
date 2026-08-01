@@ -1358,3 +1358,8 @@ body,h1,h2,h3,h4,h5,a,p{font-family: iranyekan!important;}
 }
 .slick-track{  direction:rtl; }
 .owl-carousel .owl-item {direction:rtl!important;}
+
+.svg-icon svg {
+    width: 35px !important;
+    height: 35px !important;
+}
