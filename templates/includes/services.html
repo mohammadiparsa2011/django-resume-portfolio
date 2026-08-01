@@ -2,62 +2,22 @@
 <section class="section-services relative py-[50px] max-[991px]:py-[40px] max-[767px]:py-[35px]" id="services">
     <div class="flex flex-wrap justify-between relative items-center mx-auto min-[1400px]:max-w-[1320px] min-[1200px]:max-w-[1140px] min-[992px]:max-w-[960px] min-[768px]:max-w-[720px] min-[576px]:max-w-[540px]">
         <div class="flex flex-wrap w-full mb-[-24px]">
+            {% for service in services %}
             <div class="min-[1200px]:w-[25%] min-[768px]:w-[50%] w-full px-[12px] mb-[24px]" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="200">
-                <div class="bix-services mt-[30px] relative flex flex-col justify-center text-center rounded-[30px] bg-[#edf4b3]">
-                    <div class="services-image mt-[-30px] flex justify-center relative">
+                <div class="bix-services h-[250px] mt-[30px] relative flex flex-col justify-center text-center rounded-[30px] bg-[#edf4b3]">
+                    <div class="services-image mt-[-100px] flex justify-center relative">
                         <div class="inner-image mt-[-7px] p-[20px] relative bg-[#fff] rounded-[50%]">
                             <span class="ring h-[60px] w-[60px] m-auto border-[1px] border-solid border-[#111a24] absolute top-[8px] left-[8px] rounded-[50%] inline-block z-[5]"></span>
-                            <img src="{% static 'assets/img/services/1.png' %}" alt="services" class="h-[35px] w-[35px] relative z-[1]">
+                            <div class="svg-icon w-[35px] h-[35px] relative z-[1] flex items-center justify-center bg-[#fff] rounded-[50%]">{{ service.svg_code|safe }}</div>
                         </div>
                     </div>
                     <div class="services-contact p-[30px]">
-                        <h5 class="mb-[14px] font-montserrat text-[18px] text-[#111a24] font-semibold tracking-[0.03rem] leading-[1.2]">طراحی گرافیک</h5>
-                        <p class="font-montserrat text-[14px] leading-[20px] text-[#111a24] tracking-[0.03rem]">هویت بصری کسب و کار خود را توسعه دهید.</p>
+                        <h5 class="mb-[14px] font-montserrat text-[18px] text-[#111a24] font-semibold tracking-[0.03rem] leading-[1.2]">{{ service.title }}</h5>
+                        <p class="font-montserrat text-[14px] leading-[20px] text-[#111a24] tracking-[0.03rem]">{{ service.description }}</p>
                     </div>
                 </div>
             </div>
-            <div class="min-[1200px]:w-[25%] min-[768px]:w-[50%] w-full px-[12px] mb-[24px]" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="400">
-                <div class="bix-services mt-[30px] relative flex flex-col justify-center text-center rounded-[30px] bg-[#ffd5df]">
-                    <div class="services-image mt-[-30px] flex justify-center relative">
-                        <div class="inner-image mt-[-7px] p-[20px] relative bg-[#fff] rounded-[50%]">
-                            <span class="ring h-[60px] w-[60px] m-auto border-[1px] border-solid border-[#111a24] absolute top-[8px] left-[8px] rounded-[50%] inline-block z-[5]"></span>
-                            <img src="{% static 'assets/img/services/2.png' %}" alt="services" class="h-[35px] w-[35px] relative z-[1]">
-                        </div>
-                    </div>
-                    <div class="services-contact p-[30px]">
-                        <h5 class="mb-[14px] font-montserrat text-[18px] text-[#111a24] font-semibold tracking-[0.03rem] leading-[1.2]">طراحی وب</h5>
-                        <p class="font-montserrat text-[14px] leading-[20px] text-[#111a24] tracking-[0.03rem]">با کاربران خود ارتباط برقرار کنید، نه فقط با کسب و کار خود.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="min-[1200px]:w-[25%] min-[768px]:w-[50%] w-full px-[12px] mb-[24px]" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="600">
-                <div class="bix-services mt-[30px] relative flex flex-col justify-center text-center rounded-[30px] bg-[#d5f5ff]">
-                    <div class="services-image mt-[-30px] flex justify-center relative">
-                        <div class="inner-image mt-[-7px] p-[20px] relative bg-[#fff] rounded-[50%]">
-                            <span class="ring h-[60px] w-[60px] m-auto border-[1px] border-solid border-[#111a24] absolute top-[8px] left-[8px] rounded-[50%] inline-block z-[5]"></span>
-                            <img src="{% static 'assets/img/services/3.png' %}" alt="services" class="h-[35px] w-[35px] relative z-[1]">
-                        </div>
-                    </div>
-                    <div class="services-contact p-[30px]">
-                        <h5 class="mb-[14px] font-montserrat text-[18px] text-[#111a24] font-semibold tracking-[0.03rem] leading-[1.2]">توسعه اپلیکیشن</h5>
-                        <p class="font-montserrat text-[14px] leading-[20px] text-[#111a24] tracking-[0.03rem]">ما هویت بصری کسب و کار شما را توسعه می‌دهیم.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="min-[1200px]:w-[25%] min-[768px]:w-[50%] w-full px-[12px] mb-[24px]" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="800">
-                <div class="bix-services mt-[30px] relative flex flex-col justify-center text-center rounded-[30px] bg-[#d6ffd5]">
-                    <div class="services-image mt-[-30px] flex justify-center relative">
-                        <div class="inner-image mt-[-7px] p-[20px] relative bg-[#fff] rounded-[50%]">
-                            <span class="ring h-[60px] w-[60px] m-auto border-[1px] border-solid border-[#111a24] absolute top-[8px] left-[8px] rounded-[50%] inline-block z-[5]"></span>
-                            <img src="{% static 'assets/img/services/4.png' %}" alt="services" class="h-[35px] w-[35px] relative z-[1]">
-                        </div>
-                    </div>
-                    <div class="services-contact p-[30px]">
-                        <h5 class="mb-[14px] font-montserrat text-[18px] text-[#111a24] font-semibold tracking-[0.03rem] leading-[1.2]">سئو و بازاریابی</h5>
-                        <p class="font-montserrat text-[14px] leading-[20px] text-[#111a24] tracking-[0.03rem]">قرار دادن سایت شما در صدر رتبه‌بندی گوگل.</p>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>
