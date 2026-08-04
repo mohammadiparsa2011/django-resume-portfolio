@@ -4,132 +4,106 @@
         <div class="flex flex-wrap w-full mb-[-30px]">
             <div class="w-full px-[12px]">
                 <div class="bix-banner mb-[30px] flex justify-center text-center max-[1199px]:mb-[25px] max-[767px]:mb-[20px]" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="400">
-                    <h4 class="font-montserrat text-[36px] font-bold text-[#111a24] tracking-[0.03rem] leading-[1.2] max-[1199px]:text-[32px] max-[767px]:text-[28px] max-[575px]:text-[24px]">درباره ما<span class="text-[#f41a4a]">من</span></h4>
+                    <h4 class="font-montserrat text-[36px] font-bold text-[#111a24] tracking-[0.03rem] leading-[1.2] max-[1199px]:text-[32px] max-[767px]:text-[28px] max-[575px]:text-[24px]">درباره <span class="text-[#f41a4a]">من</span></h4>
                 </div>
                 <div class="bix-banner-line mb-[110px]" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="600">
                     <span class="inner-border relative flex justify-center"></span>
                 </div>
             </div>
+
             <div class="max-[1199px]:order-2 min-[1200px]:w-[33.33%] min-[992px]:w-[50%] w-full px-[12px] mb-[30px]" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="400">
                 <div class="bix-about-contact h-full flex flex-col justify-center">
-                    <h5 class="mb-[24px] font-montserrat text-[37px] font-bold text-[#fff] tracking-[0.08rem] opacity-[0.5] leading-[1.2] max-[1399px]:text-[32px] max-[1199px]:text-[28px] max-[575px]:text-[28px] max-[420px]:text-[22px]">«خلاقیت از قلم الهام جاری می‌شود.»</h5>
-                    <p class="mb-[16px] font-montserrat text-[14px] text-[#495461] font-normal leading-[26px] tracking-[0.03rem]">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتا</p>
+                    <h5 class="mb-[24px] font-montserrat text-[37px] font-bold text-[#fff] tracking-[0.08rem] opacity-[0.5] leading-[1.2] max-[1399px]:text-[32px] max-[1199px]:text-[28px] max-[575px]:text-[28px] max-[420px]:text-[22px]">«{{ about.quote }}»</h5>
+                    <p class="mb-[16px] font-montserrat text-[14px] text-[#495461] font-normal leading-[26px] tracking-[0.03rem]">{{ about.description }}</p>
                     <div class="about-name">
-                        <h6 class="mb-[0] font-montserrat text-[16px] text-[#111a24] font-bold tracking-[0.03rem] leading-[1.2]">توسعه‌دهنده ارشد</h6>
-                        <p class="text-[14px] text-[#555] mb-[16px] font-montserrat font-normal leading-[26px] tracking-[0.03rem]">جنی بی. براون</p>
+                        <h6 class="mb-[0] font-montserrat text-[16px] text-[#111a24] font-bold tracking-[0.03rem] leading-[1.2]">{{ about.job_title }}</h6>
+                        <p class="text-[14px] text-[#555] mb-[16px] font-montserrat font-normal leading-[26px] tracking-[0.03rem]">{{ about.name }}</p>
                         <div class="inner-sign-items">
-                            <img src="{% static 'assets/img/about/sign.png' %}" alt="sign" class="white-mode w-[120px] inline">
-                            <img src="{% static 'assets/img/about/sign-dark.png' %}" alt="sign" class="dark-mode w-[120px] hidden">
+                            <img src="{{ about.signature.url }}" alt="sign" class="white-mode w-[120px] inline">
                         </div>
                     </div>
                 </div>
             </div>
+
             <div class="max-[1199px]:order-1 min-[1200px]:w-[33.33%] min-[992px]:w-[100%] w-full px-[12px] mb-[30px]" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="600">
                 <div class="bix-about-img border-[1px] border-solid border-[#111a24] p-[15px] rounded-[200px] relative max-[1199px]:max-w-fit max-[1199px]:m-auto">
-                    <img src="{% static 'assets/img/about/about.jpg' %}" alt="about" class="w-full rounded-[200px]">
-                    <div class="bix-rounded-circle z-[1] h-[130px] w-[130px] absolute bottom-[0] right-[0] bg-[#000000cc] rounded-[50%] max-[575px]:h-[120px] max-[575px]:w-[120px] max-[575px]:bottom-[20px] max-[575px]:right-[20px] max-[420px]:bottom-[0] max-[420px]:right-[0]">
-                        <a href="about.html" class="relative">
-                            <svg viewBox="0 0 100 100" width="100" height="100" class="fill-current h-auto origin-center w-full">
-                                <defs>
-                                    <path id="circle" d=" M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"></path>
-                                </defs>
-                                <text>
-                                    <textPath xlink:href="#circle" class="text-[10px] text-[#fff] tracking-[1.3px]">About Me&nbsp; - About Me &nbsp;-&nbsp;About Me &nbsp;-
-                                    </textPath>
-                                </text>
-                            </svg>
-                            <div class="inner-contact w-full h-full absolute top-[0] left-[0] right-[0] flex justify-center items-center">
-                                <i class="ri-arrow-left-up-line text-[30px] text-[#fff]"></i>
-                            </div>
-                        </a>
-                    </div>
+                    <img src="{{ about.main_image.url }}" alt="about" class="w-full rounded-[200px]">
+                    
                     <div class="inner-item transition-all duration-[0.3s] ease-in-out h-full absolute top-[0] right-[-7px] flex flex-col justify-center z-[0] opacity-[0]">
-                        <a class="box-inner my-[20px] relative" href="javascript:void(0)">
-                            <img src="{% static 'assets/img/about/item-1.png' %}" alt="item-1" class="w-[18px] h-[18px] relative z-[1] rounded-[0]">
+                        {% for social in about.social_links.all|slice:":3" %}
+                        <a class="box-inner my-[20px] relative" href="{{ social.url }}" target="_blank">
+                            <img src="{{ social.icon.url }}" alt="{{ social.name }}" class="w-[18px] h-[18px] relative z-[1] rounded-[0]">
                         </a>
-                        <a class="box-inner my-[20px] relative" href="javascript:void(0)">
-                            <img src="{% static 'assets/img/about/item-2.png' %}" alt="item-2" class="white-mode w-[18px] h-[18px] relative z-[1] rounded-[0] inline">
-                            <img src="{% static 'assets/img/about/item-2-dark.png' %}" alt="item-2-dark" class="dark-mode w-[18px] h-[18px] relative z-[1] rounded-[0] hidden">
-                        </a>
-                        <a class="box-inner my-[20px] relative" href="javascript:void(0)">
-                            <img src="{% static 'assets/img/about/item-3.png' %}" alt="item-3" class="w-[18px] h-[18px] relative z-[1] rounded-[0]">
-                        </a>
+                        {% empty %}
+                        <span class="text-[12px] text-gray-400">هیچ شبکه‌ای تعریف نشده</span>
+                        {% endfor %}
                     </div>
+
                 </div>
             </div>
+
             <div class="max-[1199px]:order-3 min-[1200px]:w-[33.33%] min-[992px]:w-[50%] w-full px-[12px]">
                 <div class="bix-skill h-full flex flex-col justify-center max-[1199px]:h-auto" id="progress">
-                    <div class="skill-inner-box mb-[24px] p-[20px] flex flex-col relative rounded-[100px] max-[420px]:rounded-[50px] bg-[#faf1c6]" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="600">
+                    {% for skill in about.skills.all %}
+                    <div class="skill-inner-box mb-[24px] p-[20px] flex flex-col relative rounded-[100px] max-[420px]:rounded-[50px] bg-[{{ skill.bg_color }}]" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="600">
+                        
                         <div class="skill-logo transition-all duration-[0.3s] ease-in-out flex justify-end absolute right-[60px] top-[-30px] z-[1] opacity-[0]">
-                            <a href="javascript:void(0)" class="relative h-[30px] w-[30px] mx-[20px] border-[1px] border-solid border-[#111a24] bg-[#fff] rounded-[20px]">
-                                <img src="{% static 'assets/img/about/logo-1.png' %}" alt="about-logo-1" class="w-[28px] p-[5px]">
+                            {% for icon in skill.icons.all|slice:":2" %}
+                            <a href="{{ icon.url|default:'javascript:void(0)' }}" class="relative h-[30px] w-[30px] mx-[20px] border-[1px] border-solid border-[#111a24] bg-[#fff] rounded-[20px]">
+                                <img src="{{ icon.icon_image.url }}" alt="logo" class="w-[28px] p-[5px]">
                             </a>
-                            <a href="javascript:void(0)" class="relative h-[30px] w-[30px] mx-[20px] border-[1px] border-solid border-[#111a24] bg-[#fff] rounded-[20px]">
-                                <img src="{% static 'assets/img/about/logo-3.png' %}" alt="about-logo-3" class="w-[28px] p-[5px]">
-                            </a>
+                            {% endfor %}
                         </div>
+
                         <div class="skill-contact inline-flex flex-wrap max-[420px]:flex-col">
-                            <svg class="progress noselect w-[90px] h-full bg-transparent inline-block" data-progress="90" x="0px" y="0px" viewBox="0 0 80 80"> 
-                                <path class="track" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
-                                <path class="fill" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
-                                <text class="value" x="50%" y="58%">۰٪</text>
+                            <svg class="progress noselect w-[90px] h-full bg-transparent inline-block" 
+                                 data-progress="{{ skill.percentage }}" 
+                                 viewBox="0 0 80 80">
+                                <path class="track" d="M40,5 A35,35 0 1,1 40,75 A35,35 0 1,1 40,5" />
+                                <path class="fill" 
+                                      d="M40,5 A35,35 0 1,1 40,75 A35,35 0 1,1 40,5" 
+                                      stroke-dasharray="220" 
+                                      stroke-dashoffset="220" />
+                                <text class="value" x="50%" y="58%">{{ skill.percentage }}%</text>
                             </svg>
                             <div class="skill-box-contact w-[calc(100%-90px)] p-[10px] flex flex-col justify-center max-[420px]:w-full">
-                                <h4 class="font-montserrat text-[16px] font-semibold text-[#111a24] mb-[8px] tracking-[0.03rem] leading-[1.2]">ظاهر (فرانت‌اند)<span class="text-[13px] font-medium text-[#111a24]">(انگولار، ری‌اکت)</span></h4>
+                                <h4 class="font-montserrat text-[16px] font-semibold text-[#111a24] mb-[8px] tracking-[0.03rem] leading-[1.2]">
+                                    {{ skill.title }}
+                                </h4>
                                 <p class="font-montserrat text-[13px] leading-[22px] text-[#495461] overflow-hidden tracking-[0.03rem] text-ellipsis flex">
-                                    متن لورم پیسوم است چاپگرها در تون
+                                    {{ skill.description }}
                                 </p>
                             </div>
                         </div>
+
                     </div>
-                    <div class="skill-inner-box mb-[24px] p-[20px] flex flex-col relative rounded-[100px] max-[420px]:rounded-[50px] bg-[#ffd5df]" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="800">
-                        <div class="skill-logo transition-all duration-[0.3s] ease-in-out flex justify-end absolute right-[60px] top-[-30px] z-[1] opacity-[0]">
-                            <a href="javascript:void(0)" class="relative h-[30px] w-[30px] mx-[20px] border-[1px] border-solid border-[#111a24] bg-[#fff] rounded-[20px]">
-                                <img src="{% static 'assets/img/about/logo-4.png' %}" alt="about-logo-4" class="w-[28px] p-[5px]">
-                            </a>
-                            <a href="javascript:void(0)" class="relative h-[30px] w-[30px] mx-[20px] border-[1px] border-solid border-[#111a24] bg-[#fff] rounded-[20px]">
-                                <img src="{% static 'assets/img/about/logo-5.png' %}" alt="about-logo-5" class="w-[28px] p-[5px]">
-                            </a>
-                        </div>
-                        <div class="skill-contact inline-flex flex-wrap max-[420px]:flex-col">
-                            <svg class="progress blue noselect w-[90px] h-full bg-transparent inline-block" data-progress="80" x="0px" y="0px" viewBox="0 0 80 80">
-                                <path class="track" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
-                                <path class="fill" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
-                                <text class="value" x="50%" y="58%">۰٪</text>
-                            </svg>
-                            <div class="skill-box-contact w-[calc(100%-90px)] p-[10px] flex flex-col justify-center max-[420px]:w-full">
-                                <h4 class="font-montserrat text-[16px] font-semibold text-[#111a24] mb-[8px] tracking-[0.03rem] leading-[1.2]">بک‌اند<span class="text-[13px] font-medium text-[#111a24]">(پی‌اچ‌پی، پایتون)</span></h4>
-                                <p class="font-montserrat text-[13px] leading-[22px] text-[#495461] overflow-hidden tracking-[0.03rem] text-ellipsis flex">
-                                    متن لورم پیسوم است چاپگرها در تون
-                                </p>
-                            </div>
-                        </div>
+                    {% empty %}
+                    <div class="text-center text-gray-500 py-10">
+                        <p>هیچ مهارتی تعریف نشده است. لطفاً از پنل ادمین مهارت‌ها را اضافه کنید.</p>
                     </div>
-                    <div class="skill-inner-box mb-[24px] p-[20px] flex flex-col relative rounded-[100px] max-[420px]:rounded-[50px] bg-[#d5f5ff]" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000">
-                        <div class="skill-logo transition-all duration-[0.3s] ease-in-out flex justify-end absolute right-[60px] top-[-30px] z-[1] opacity-[0]">
-                            <a href="javascript:void(0)" class="relative h-[30px] w-[30px] mx-[20px] border-[1px] border-solid border-[#111a24] bg-[#fff] rounded-[20px]">
-                                <img src="{% static 'assets/img/about/logo-6.png' %}" alt="about-logo-6" class="w-[28px] p-[5px]">
-                            </a>
-                            <a href="javascript:void(0)" class="relative h-[30px] w-[30px] mx-[20px] border-[1px] border-solid border-[#111a24] bg-[#fff] rounded-[20px]">
-                                <img src="{% static 'assets/img/about/logo-7.png' %}" alt="about-logo-7" class="w-[28px] p-[5px]">
-                            </a>
-                        </div>
-                        <div class="skill-contact inline-flex flex-wrap max-[420px]:flex-col">
-                            <svg class="progress noselect w-[90px] h-full bg-transparent inline-block" data-progress="85" x="0px" y="0px" viewBox="0 0 80 80">
-                                <path class="track" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
-                                <path class="fill" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
-                                <text class="value" x="50%" y="58%">۰٪</text>
-                            </svg>
-                            <div class="skill-box-contact w-[calc(100%-90px)] p-[10px] flex flex-col justify-center max-[420px]:w-full">
-                                <h4 class="font-montserrat text-[16px] font-semibold text-[#111a24] mb-[8px] tracking-[0.03rem] leading-[1.2]">گرافیک<span class="text-[13px] font-medium text-[#111a24]">(فتوشاپ، طراحی)</span></h4>
-                                <p class="font-montserrat text-[13px] leading-[22px] text-[#495461] overflow-hidden tracking-[0.03rem] text-ellipsis flex">
-                                    متن لورم پیسوم است چاپگرها در تون
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
+
         </div>
     </div>
 </section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        setTimeout(function() {
+            document.querySelectorAll('.progress').forEach(function(svg) {
+                var progress = parseInt(svg.getAttribute('data-progress'), 10);
+                if (!isNaN(progress)) {
+                    var circumference = 2 * Math.PI * 35; // ≈ 220
+                    var offset = circumference - (progress / 100) * circumference - (circumference / 4);
+                    var fillPath = svg.querySelector('.fill');
+                    if (fillPath) {
+                        fillPath.style.strokeDasharray = circumference;
+                        fillPath.style.strokeDashoffset = offset;
+                    }
+                }
+            });
+        }, 100);
+    });
+</script>
