@@ -1,16 +1,18 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import HeroSection, ServicesSection
+from .models import HeroSection, ServicesSection, About
 
 
 def home_view(request):
     """صفحه اصلی سایت"""
     hero_section = HeroSection.objects.first()
     services_section = ServicesSection.objects.all()
+    about = About.objects.first()
 
     context = {
         'hero_section' : hero_section,
         'services' : services_section,
+        'about' : about,
     }
     return render(request, 'index.html', context)
 
