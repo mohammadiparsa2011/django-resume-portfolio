@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import HeroSection, ServicesSection, About
+from .models import HeroSection, ServicesSection, About, WorkExperience, EducationExperience
 
 
 def home_view(request):
@@ -8,11 +8,15 @@ def home_view(request):
     hero_section = HeroSection.objects.first()
     services_section = ServicesSection.objects.all()
     about = About.objects.first()
+    work_experiences = WorkExperience.objects.all()
+    education_experiences = EducationExperience.objects.all()
 
     context = {
         'hero_section' : hero_section,
         'services' : services_section,
         'about' : about,
+        'work_experiences' : work_experiences,
+        'education_experiences' : education_experiences,
     }
     return render(request, 'index.html', context)
 
