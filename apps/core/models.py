@@ -80,3 +80,31 @@ class SkillIcon(models.Model):
     class Meta():
         verbose_name = 'آیکون مهارت'
         verbose_name_plural = 'آیکون‌های مهارت'
+
+class WorkExperience(models.Model):
+    position = models.CharField(max_length=100, verbose_name='جایگاه شغلی')
+    company = models.CharField(max_length=100, verbose_name='کمپانی')
+    start_year = models.IntegerField(verbose_name='سال شروع همکاری')
+    end_year = models.CharField(max_length=10, blank=True, null=True, verbose_name='سال پایان همکاری/الان')
+    description = models.TextField(verbose_name='توضیحات')
+
+    def __str__(self):
+        return f'{self.position} در {self.company}'
+    
+    class Meta:
+        verbose_name = 'سابقه کاری'
+        verbose_name_plural = "سوابق کاری"
+
+class EducationExperience(models.Model):
+    degree = models.CharField(max_length=100, verbose_name='مدرک تحصیلی')
+    university = models.CharField(max_length=100, verbose_name='نام دانشگاه')
+    start_year = models.IntegerField(verbose_name='سال شروع تحصیل')
+    end_year = models.IntegerField(verbose_name='سال پایان تحصیل')
+    description = models.TextField(verbose_name='توضیحات')
+
+    def __str__(self):
+        return f'{self.degree} در {self.university}'
+    
+    class Meta:
+        verbose_name = 'سابقه تحصیلی'
+        verbose_name_plural = "سوابق تحصیلی"
