@@ -4,7 +4,7 @@
         <div class="flex flex-wrap w-full mb-[-24px]">
             {% for service in services %}
             <div class="min-[1200px]:w-[25%] min-[768px]:w-[50%] w-full px-[12px] mb-[24px]" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="200">
-                <div class="bix-services h-[250px] mt-[30px] relative flex flex-col justify-center text-center rounded-[30px] bg-[#edf4b3]">
+                <div class="bix-services h-[250px] mt-[30px] relative flex flex-col justify-center text-center rounded-[30px] bg-[{{ service.bg_color }}]">
                     <div class="services-image mt-[-100px] flex justify-center relative">
                         <div class="inner-image mt-[-7px] p-[20px] relative bg-[#fff] rounded-[50%]">
                             <span class="ring h-[60px] w-[60px] m-auto border-[1px] border-solid border-[#111a24] absolute top-[8px] left-[8px] rounded-[50%] inline-block z-[5]"></span>
