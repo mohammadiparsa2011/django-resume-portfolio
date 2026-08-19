@@ -14,18 +14,6 @@ class HeroSection(models.Model):
         verbose_name = 'اطلاعات شخصی'
         verbose_name_plural = 'اطلاعات شخصی'
 
-class ServicesSection(models.Model):
-    title = models.CharField(max_length=100, verbose_name='عنوان توانایی')
-    description = models.TextField(verbose_name='توضیحات')
-    svg_code = models.TextField(verbose_name='SVG کد')
-
-    def __str__(self):
-        return self.title
-
-    class Meta:
-        verbose_name = 'توانایی'
-        verbose_name_plural = "توانایی‌ها"
-
 class About(models.Model):
     quote = models.CharField(max_length=100, verbose_name="نقل قول")
     description = models.TextField(verbose_name='توضیحات')
@@ -81,6 +69,19 @@ class SkillIcon(models.Model):
         verbose_name = 'آیکون مهارت'
         verbose_name_plural = 'آیکون‌های مهارت'
 
+class ServicesSection(models.Model):
+    title = models.CharField(max_length=100, verbose_name='عنوان توانایی')
+    description = models.TextField(verbose_name='توضیحات')
+    svg_code = models.TextField(verbose_name='SVG کد')
+    bg_color = models.CharField(max_length=20, default='#84a59d', blank=True, null=True, verbose_name='رنگ پس زمینه')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'توانایی'
+        verbose_name_plural = "توانایی‌ها"
+
 class WorkExperience(models.Model):
     position = models.CharField(max_length=100, verbose_name='جایگاه شغلی')
     company = models.CharField(max_length=100, verbose_name='کمپانی')
@@ -108,3 +109,36 @@ class EducationExperience(models.Model):
     class Meta:
         verbose_name = 'سابقه تحصیلی'
         verbose_name_plural = "سوابق تحصیلی"
+
+class PortfolioCategory(models.Model):
+    name = models.CharField(max_length=50, unique=True, verbose_name="نام دسته‌بندی")
+    slug = models.SlugField(max_length=50, unique=True, blank=True, verbose_name="اسلاگ (برای فیلتر)")
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "دسته‌بندی"
+        verbose_name_plural = "دسته‌بندی‌ها"
+
+class PortfolioItem(models.Model):
+    title = models.CharField(max_length=255, verbose_name='عنوان')
+    description = models.TextField(blank=True, null=True, verbose_name='توضیحات')
+    
+    categories = models.ManyToManyField(PortfolioCategory, related_name='portfolio_items', verbose_name='دسته‌بندی‌ها')
+    
+    thumbnail_picture = models.ImageField(upload_to='portfolio/thumbnail/', verbose_name='تصویر بندانگشتی')
+    main_picture = models.ImageField(upload_to='portfolio/main/', verbose_name='تصویر اصلی')
+    link = models.URLField(blank=True, null=True, verbose_name='لینک نمونه کار')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'نمونه کار'
+        verbose_name_plural = 'نمونه کارها'
