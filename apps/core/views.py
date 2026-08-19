@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import HeroSection, ServicesSection, About, WorkExperience, EducationExperience
+from .models import HeroSection, ServicesSection, About, WorkExperience, EducationExperience, PortfolioItem, PortfolioCategory
 
 
 def home_view(request):
@@ -10,6 +10,8 @@ def home_view(request):
     about = About.objects.first()
     work_experiences = WorkExperience.objects.all()
     education_experiences = EducationExperience.objects.all()
+    portfolio_items = PortfolioItem.objects.all()
+    portfo_categories = PortfolioCategory.objects.all()
 
     context = {
         'hero_section' : hero_section,
@@ -17,6 +19,8 @@ def home_view(request):
         'about' : about,
         'work_experiences' : work_experiences,
         'education_experiences' : education_experiences,
+        'portfolio_items': portfolio_items,
+        'categories': portfo_categories,
     }
     return render(request, 'index.html', context)
 
