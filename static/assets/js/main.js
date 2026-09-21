@@ -234,8 +234,11 @@
     })
 
     /* Footer Date */
-    var date = new Date().getFullYear();
-    document.getElementById("copyright_year").innerHTML = date;
+    try {
+        document.getElementById("copyright_year").innerHTML = date;
+    } catch (e) {
+        console.log("Footer date element not found, skipping...");
+    }
 
     /* Skill Progress */
     var progress = $('#progress');
