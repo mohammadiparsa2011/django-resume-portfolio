@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html dir="rtl" lang="fa">
 <head>
+    <title>{% block title %}نمونه کار شخصی{% endblock %}</title>
     {% block head %}
         <!-- head -->
     {% endblock %}
@@ -37,11 +38,9 @@
     </main>
 
     <!-- ==================== Footer ==================== -->
-    <footer class="bg-[#f7f5fb] py-[10px]">
-        {% block footer %}
-            <!-- footer -->
-        {% endblock %}
-    </footer>
+    {% block footer %}
+        <!-- footer -->
+    {% endblock %}
 
     <!-- ==================== Back to Top ==================== -->
     <a href="#Top" class="back-to-top result-placeholder hidden w-[38px] h-[38px] fixed right-[15px] bottom-[15px] z-[10] rounded-[20px] cursor-pointer bg-[#fff] text-[#f41a4a] border-[1px] border-solid border-[#f41a4a] text-center text-[22px] leading-[1.6]">
