@@ -15,7 +15,6 @@
                     <ul id="filters" class="clearfix mb-[30px] p-[5px] flex justify-center flex-wrap bg-[#f7f5fb] items-center border-[1px] border-solid border-[#1b1c20] rounded-[25px]">
                         <li class="filter m-[5px] py-[5px] px-[15px] transition-all duration-[0.25s] ease-out border-[0] rounded-[15px] font-montserrat text-[14px] leading-[26px] tracking-[0.03rem] text-[#111a24] cursor-pointer active" data-filter="all">همه</li>
                         
-                        <!-- ✅ حلقه برای نمایش دسته‌بندی‌های داینامیک -->
                         {% for category in categories %}
                             <li class="filter m-[5px] py-[5px] px-[15px] transition-all duration-[0.25s] ease-out border-[0] rounded-[15px] font-montserrat text-[14px] leading-[26px] tracking-[0.03rem] text-[#111a24] cursor-pointer" data-filter=".{{ category.slug }}">{{ category.name }}</li>
                         {% endfor %}
@@ -25,17 +24,17 @@
                     <div class="flex flex-wrap w-full mb-[-24px]">
                         
                         {% for item in portfolio_items %}
-                            <!-- 
-                                ✅ کلاس "item" شامل تمام اسلاگ‌های دسته‌بندی‌های این پروژه می‌شود 
-                                تا فیلتر جاوااسکریپت بتواند آن را نمایش دهد.
-                            -->
                             <div class="min-[1200px]:w-[33.33%] min-[768px]:w-[50%] w-full px-[12px] mb-[24px] item {% for cat in item.categories.all %}{{ cat.slug }} {% endfor %}">
                                 <div class="bix-project-card">
                                     <div class="project-image relative px-[30px] pb-[30px] overflow-hidden rounded-[30px] z-[1] max-[480px]:px-[20px] max-[480px]:pb-[20px]">
-                                        <a href="{{ item.main_picture.url }}" data-fancybox="gallery" class="flex rounded-[30px] overflow-hidden">
-                                            <div class="overlay-project-card transition-all duration-[0.3s] ease-in-out opacity-[0] w-[calc(100%-60px)] h-[calc(100%-30px)] absolute top-[0] right-[30px] rounded-[30px] flex items-center justify-center bg-[#00000080] z-[45] overflow-hidden max-[480px]:p-[0] max-[480px]:w-[calc(100%-40px)] max-[480px]:h-[calc(100%-20px)] max-[480px]:top-[0] max-[480px]:bottom-[0] max-[480px]:right-[20px] max-[480px]:left-[20px]"></div>
-                                            <img src="{{ item.thumbnail_picture.url }}" alt="{{ item.title }}" class="transition-all duration-[0.3s] ease-in-out w-full">
-                                        </a>
+                                        {% if item.main_picture %}
+                                            <a href="{{ item.main_picture.url }}" data-fancybox="gallery" class="flex rounded-[30px] overflow-hidden">
+                                                <div class="overlay-project-card transition-all duration-[0.3s] ease-in-out opacity-[0] w-[calc(100%-60px)] h-[calc(100%-30px)] absolute top-[0] right-[30px] rounded-[30px] flex items-center justify-center bg-[#00000080] z-[45] overflow-hidden max-[480px]:p-[0] max-[480px]:w-[calc(100%-40px)] max-[480px]:h-[calc(100%-20px)] max-[480px]:top-[0] max-[480px]:bottom-[0] max-[480px]:right-[20px] max-[480px]:left-[20px]"></div>
+                                                {% if item.thumbnail_picture %}
+                                                    <img src="{{ item.thumbnail_picture.url }}" alt="{{ item.title }}" class="transition-all duration-[0.3s] ease-in-out w-full">
+                                                {% endif %}
+                                            </a>
+                                        {% endif %}
                                     </div>
                                     <div class="project-contact pt-[170px] pb-[30px] px-[30px] mt-[-175px] relative z-[0] border-[1px] border-solid border-[#1b1c20] rounded-[30px] max-[480px]:pb-[20px] max-[480px]:px-[20px]">
                                         <h5 class="mb-[2px] text-[18px] text-[#111a24] tracking-[0.03rem] leading-[1.2] font-medium">
@@ -44,7 +43,6 @@
                                             </a>
                                         </h5>
                                         
-                                        <!-- ✅ نمایش دسته‌بندی‌ها با جداکننده "|" -->
                                         <span class="font-montserrat font-normal leading-[26px] tracking-[0.02rem] text-[14px] max-[1399px]:text-[14px] text-[#999]">
                                             {% for cat in item.categories.all %}
                                                 {{ cat.name }}{% if not forloop.last %} | {% endif %}
