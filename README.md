@@ -1,197 +1,665 @@
-# django-resume-portfolio
+# Django Resume Portfolio
 
-[![Python Version](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://python.org)
-[![Django Version](https://img.shields.io/badge/django-5.2-green.svg)](https://djangoproject.com)
-[![License](https://img.shields.io/badge/license-MIT-red.svg)](LICENSE)
+> A production-ready personal portfolio & resume website built with Django 5.2 LTS, featuring a modular architecture, dynamic admin panel, and bilingual documentation.
+
+[![Python](https://img.shields.io/badge/python-3.10%2B-blue?logo=python&logoColor=white)](https://python.org)
+[![Django](https://img.shields.io/badge/django-5.2%20LTS-092E20?logo=django&logoColor=white)](https://djangoproject.com)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Code Style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 ---
 
-This is my personal portfolio and resume website that I built with Django 5.2 LTS. I wanted a clean, modern, and fully responsive design to showcase my skills, projects, and blog posts. It’s ready to deploy and easy to customize.
+## 📖 Overview
 
-I’ve tried to keep the code clean and the structure modular so that adding new features later won’t be a headache.
+A fully-featured, modular portfolio website designed with production-grade practices. Every section is **dynamically managed** through Django's admin panel, so no code changes are required to update your content.
 
-## ✨ What’s inside?
+### Why this project stands out
 
-- **Modern UI** – responsive and works on all devices
-- **Blog** – you can write, edit, and delete posts
-- **Project Showcase** – filter projects by category
-- **Testimonials** – manage client feedback easily
-- **Environment variables** – secure settings with `.env`
-- **Ready for deployment** – comes with Gunicorn and WhiteNoise
+- **Modular architecture** — business logic separated into `config/` and `apps/`, following Django best practices for scalability.
+- **Environment isolation** — split settings for development and production (`local.py` / `production.py`).
+- **Secure by default** — `.env`-based configuration, CSRF protection, and no hard-coded secrets.
+- **Optimized ORM** — `prefetch_related()` and `select_related()` to eliminate N+1 queries.
+- **Professional admin panel** — image previews, inline editors, singleton enforcement, and read-only request logs.
+- **Ready for deployment** — Gunicorn + WhiteNoise + PostgreSQL support out of the box.
+
+---
+
+## ✨ Features
+
+| Section | Description |
+| :--- | :--- |
+| **Hero** | Dynamic avatar, name, job title, and resume download button |
+| **About** | Quote, bio, signature, social links, and skill progress circles |
+| **Achievement** | Combined timeline of work & education, sorted chronologically |
+| **Services** | Custom SVG icons with configurable background colors |
+| **Projects** | Filterable gallery with multi-category support (ManyToMany) |
+| **Hire** | Call-to-action section with custom background image |
+| **Testimonials** | Customer feedback carousel with photo & activity |
+| **Blog** | Post carousel with auto-truncated descriptions |
+| **Footer** | Configurable site name, copyright, and social links |
+| **Contact Modal** | Dual-form (Freelance / Job) with CSRF protection and validation |
+
+---
 
 ## 🛠️ Tech Stack
 
-- **Backend:** Django 5.2 LTS, Python 3.10+
-- **Frontend:** Tailwind CSS, HTML5, JavaScript
-- **Database:** SQLite (dev) / PostgreSQL (production)
-- **Deployment:** Gunicorn, WhiteNoise, Docker-ready
-- **Utilities:** python-decouple, Pillow
+**Backend**
+- Django 5.2 LTS
+- Python 3.10+
+- SQLite (dev) / PostgreSQL (production)
+- Gunicorn (WSGI server)
+- WhiteNoise (static file serving)
 
-## 🚀 How to run it locally
+**Frontend**
+- Tailwind CSS 3.4 (via CDN)
+- Vanilla JavaScript (jQuery for legacy components)
+- Owl Carousel, AOS, Fancybox, MixItUp
 
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/mohammadiparsa2011/django-resume-portfolio.git
-   cd django-resume-portfolio
-   ```
+**DevOps & Utilities**
+- `python-decouple` — environment variable management
+- `Pillow` — image handling
+- `psycopg2-binary` — PostgreSQL adapter
 
-2. Set up a virtual environment and activate it:
-   ```bash
-   python -m venv .venv
-   source .venv/bin/activate   # On Windows: .venv\Scripts\activate
-   ```
+---
 
-3. Install the dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+## 🏗️ Architecture
 
-4. Create a `.env` file and add your `SECRET_KEY` and `DEBUG` settings (I’ve provided a sample in the repo).
-
-5. Run migrations and start the server:
-   ```bash
-   python manage.py migrate --settings=config.settings.local
-   python manage.py runserver --settings=config.settings.local
-   ```
-
-6. Open your browser and go to `http://127.0.0.1:8000`
-
-## 📁 Project Structure
-
-I’ve organized the project so that all the main logic stays in the `core` app, while other apps (like `portfolio`, `blog`, `testimonials`) are ready for future development. The templates are in the root `templates/` folder for easy access.
+This project follows a **domain-oriented structure** where all Django apps live under an `apps/` package, and configuration is isolated in `config/`.
 
 ```
 django-resume-portfolio/
-├── config/           # Settings (separated for dev/prod)
-├── apps/             # All Django apps
-│   ├── core/         # Main app (views, urls)
-│   ├── portfolio/    # Models only (for future)
-│   ├── blog/         # Models only (for future)
-│   └── testimonials/ # Models only (for future)
-├── templates/        # HTML templates (base, index, includes)
-├── static/           # CSS, JS, images
-└── media/            # User-uploaded files
+├── config/                      # Project configuration
+│   ├── settings/
+│   │   ├── base.py              # Shared settings
+│   │   ├── local.py             # Development (DEBUG=True)
+│   │   └── production.py        # Production (PostgreSQL, DEBUG=False)
+│   ├── urls.py                  # Root URL configuration
+│   ├── wsgi.py                  # WSGI entry point
+│   └── asgi.py                  # ASGI entry point
+│
+├── apps/                        # All Django applications
+│   ├── core/                    # Main app (all models, views, admin)
+│   │   ├── models.py            # 14 domain models
+│   │   ├── views.py             # Home + Contact views
+│   │   ├── admin.py             # Professional admin configuration
+│   │   ├── urls.py              # App-level routes
+│   │   └── apps.py              # CoreConfig
+│   ├── portfolio/               # Reserved for future (Model-only)
+│   ├── blog/                    # Reserved for future (Model-only)
+│   └── testimonials/            # Reserved for future (Model-only)
+│
+├── templates/                   # Global template root
+│   ├── base.html                # Layout with named blocks
+│   ├── index.html               # Homepage composition
+│   └── includes/                # 15 partial templates
+│       ├── head.html
+│       ├── header.html
+│       ├── mobile_menu.html
+│       ├── hero.html
+│       ├── about.html
+│       ├── achievement.html
+│       ├── services.html
+│       ├── projects.html
+│       ├── hire.html
+│       ├── testimonials.html
+│       ├── blog.html
+│       ├── footer.html
+│       ├── modal_hire.html
+│       └── scripts.html
+│
+├── static/                      # Static assets (CSS/JS/IMG)
+├── media/                       # User-uploaded files (git-ignored)
+├── .env                         # Environment variables (git-ignored)
+├── manage.py
+└── requirements.txt
 ```
 
-## 🤝 Contribute
+### Why `apps/` instead of the project root?
 
-If you find a bug or have a suggestion, feel free to open an issue or submit a pull request. I’m always open to improving this project.
+- **Cleaner imports** — `from apps.core.models import About` clearly signals a project-local app.
+- **Scalability** — adding a new app never clutters the project root.
+- **Familiar pattern** — matches the structure used by many large Django codebases.
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Python **3.10+**
+- pip
+- Git
+- (Optional) PostgreSQL 13+ for production
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/mohammadiparsa2011/django-resume-portfolio.git
+cd django-resume-portfolio
+```
+
+### 2. Create & activate a virtual environment
+
+**Windows (PowerShell):**
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+```
+
+**Windows (CMD):**
+```cmd
+python -m venv .venv
+.venv\Scripts\activate
+```
+
+**Linux / macOS:**
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+### 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configure environment variables
+
+Create a `.env` file in the project root:
+
+```env
+SECRET_KEY=your-super-secret-key-change-me
+DEBUG=True
+
+# Only required for production (PostgreSQL)
+DB_NAME=portfolio_db
+DB_USER=portfolio_user
+DB_PASSWORD=strong-password
+DB_HOST=localhost
+DB_PORT=5432
+```
+
+> 💡 **Tip:** Generate a `SECRET_KEY` with:
+> ```bash
+> python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
+> ```
+
+### 5. Apply migrations & create a superuser
+
+```bash
+python manage.py migrate
+python manage.py createsuperuser
+```
+
+### 6. Run the development server
+
+```bash
+python manage.py runserver
+```
+
+Visit **http://127.0.0.1:8000** for the site and **http://127.0.0.1:8000/admin** for the admin panel.
+
+---
+
+## ⚙️ Settings Strategy
+
+The settings module is **split by environment**:
+
+| File | Purpose | Loaded via |
+| :--- | :--- | :--- |
+| `config/settings/base.py` | Common configuration | — |
+| `config/settings/local.py` | `DEBUG=True`, permissive hosts | `manage.py` (default) |
+| `config/settings/production.py` | `DEBUG=False`, PostgreSQL, strict hosts | Gunicorn / WSGI |
+
+`manage.py` defaults to `config.settings.local`, so you can simply run:
+
+```bash
+python manage.py runserver
+```
+
+For production, override the module:
+
+```bash
+DJANGO_SETTINGS_MODULE=config.settings.production gunicorn config.wsgi:application
+```
+
+---
+
+## 🚢 Deployment
+
+### Static files
+
+```bash
+python manage.py collectstatic --no-input --settings=config.settings.production
+```
+
+WhiteNoise will serve them automatically through Gunicorn.
+
+### Gunicorn
+
+```bash
+gunicorn config.wsgi:application \
+    --env DJANGO_SETTINGS_MODULE=config.settings.production \
+    --bind 0.0.0.0:8000 \
+    --workers 3
+```
+
+### Checklist before going live
+
+- [ ] `SECRET_KEY` is unique and stored in `.env`.
+- [ ] `DEBUG=False` in production.
+- [ ] `ALLOWED_HOSTS` lists your domain(s).
+- [ ] PostgreSQL credentials are set in `.env`.
+- [ ] `collectstatic` has been run.
+- [ ] `python manage.py check --deploy` passes without warnings.
+- [ ] HTTPS is enforced (`SECURE_SSL_REDIRECT = True`).
+
+---
+
+## 🔐 Environment Variables
+
+| Variable | Required | Description |
+| :--- | :--- | :--- |
+| `SECRET_KEY` | ✅ | Django's cryptographic key |
+| `DEBUG` | ✅ | `True` in dev, `False` in prod |
+| `DB_NAME` | prod only | PostgreSQL database name |
+| `DB_USER` | prod only | PostgreSQL user |
+| `DB_PASSWORD` | prod only | PostgreSQL password |
+| `DB_HOST` | prod only | Database host (default: `localhost`) |
+| `DB_PORT` | prod only | Database port (default: `5432`) |
+
+---
+
+## 🧠 Key Design Decisions
+
+### 1. Why a single `core` app instead of many?
+
+The project is intentionally scoped as a **single-domain portfolio**. Splitting it into `portfolio`, `blog`, `testimonials` apps right away would add ceremony without benefit. The `apps/portfolio`, `apps/blog`, `apps/testimonials` packages exist only as **future placeholders** — if the project grows, migration is a matter of moving models over.
+
+### 2. Why `first()` for singletons?
+
+Models like `HeroSection`, `About`, `Hire`, and `Footer` should have **exactly one record**. Enforcing this at the admin level (`has_add_permission`) and reading via `objects.first()` keeps views simple and prevents accidental duplicates.
+
+### 3. Why `ManyToManyField` for project categories?
+
+A project can belong to **multiple categories** (e.g., both "Web" and "Graphics"). `ManyToManyField` models this naturally and integrates with the frontend filter via slug-based CSS classes.
+
+### 4. Why `prefetch_related()`?
+
+The About section displays social links, skills, and skill icons — three levels of related data. Without `prefetch_related`, Django fires one query per relation per row (**N+1 problem**). With it, everything is fetched in 3-4 queries total.
+
+### 5. Why a custom admin for request logs?
+
+`FreelanceRequest` and `JobRequest` are **user-submitted data** — they should be readable but immutable. `readonly_fields` + `has_change_permission = False` + `has_add_permission = False` guarantee the admin user can only view and delete them.
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome.  
+Please open an issue first to discuss significant changes.
+
+1. Fork the repository
+2. Create your feature branch: `git checkout -b feature/amazing-feature`
+3. Commit your changes: `git commit -m "feat: add amazing feature"`
+4. Push to the branch: `git push origin feature/amazing-feature`
+5. Open a Pull Request
+
+---
 
 ## 📄 License
 
-This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
+Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for more information.
 
 ---
 
-## 👤 About Me
+## 👤 Author
 
-I’m **Parsa Mohammadi**, a developer who enjoys building clean and functional web applications. You can find me on:
+**Parsa Mohammadi**
 
 - GitHub: [@mohammadiparsa2011](https://github.com/mohammadiparsa2011)
-- LinkedIn: [my LinkedIn profile](https://linkedin.com/in/your-profile)
-- Website: [my personal site](https://your-site.com)
+- LinkedIn: [mohammadiparsa2011](https://linkedin.com/in/mohammadiparsa2011)
+- Website: [parsanova.ir](https://parsanova.ir)
 
 ---
 
-⭐ If this project helps you or you like it, please give it a star! It means a lot.
+## ⭐ Support
+
+If this project helped you, please consider giving it a **star** — it means a lot!
+
+---
+---
+
+# 🇮🇷 نسخه‌ی فارسی
+
+> یک وب‌سایت نمونه‌کار و رزومه‌ی شخصی، آماده برای انتشار، ساخته‌شده با **جنگو ۵.۲ LTS**، با معماری ماژولار، پنل ادمین حرفه‌ای و مستندات دوزبانه.
+
+[![نسخه پایتون](https://img.shields.io/badge/python-3.10%2B-blue?logo=python&logoColor=white)](https://python.org)
+[![نسخه جنگو](https://img.shields.io/badge/django-5.2%20LTS-092E20?logo=django&logoColor=white)](https://djangoproject.com)
+[![مجوز](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![سبک کد](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 ---
 
-## 🇮🇷 نسخه‌ی فارسی
+## 📖 معرفی
 
-# نمونه‌کار شخصی با جنگو
+یک وب‌سایت نمونه‌کار و رزومه‌ی شخصی، ساخته‌شده با **جنگو ۵.۲ LTS**، با معماری ماژولار، پنل ادمین حرفه‌ای و مستندات دوزبانه. همه‌ی بخش‌ها از طریق پنل ادمین قابل مدیریت هستن و نیازی به تغییر کد ندارن.
 
-[![نسخه پایتون](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://python.org)
-[![نسخه جنگو](https://img.shields.io/badge/django-5.2-green.svg)](https://djangoproject.com)
-[![مجوز](https://img.shields.io/badge/license-MIT-red.svg)](LICENSE)
+### چرا این پروژه متمایزه؟
+
+- **معماری ماژولار** — منطق پروژه در `config/` و `apps/` جدا شده.
+- **جداسازی محیط‌ها** — تنظیمات جداگانه برای توسعه و تولید.
+- **امنیت از پایه** — استفاده از `.env` و محافظت CSRF.
+- **بهینه‌سازی ORM** — حذف مشکل N+1 با `prefetch_related`.
+- **پنل ادمین حرفه‌ای** — پیش‌نمایش تصویر، ویرایشگر درون‌خطی، جلوگیری از رکورد تکراری.
+- **آماده برای انتشار** — Gunicorn + WhiteNoise + PostgreSQL.
 
 ---
 
-این وب‌سایت نمونه‌کار و رزومه‌ی شخصی‌ام است که با جنگو ۵.۲ LTS ساختم. هدفم این بود که یک طراحی مدرن، تمیز و کاملاً واکنش‌گرا داشته باشم تا مهارت‌ها، پروژه‌ها و نوشته‌های وبلاگم را به‌خوبی نمایش دهد. پروژه آماده‌ی انتشار است و به‌راحتی قابل شخصی‌سازی می‌باشد.
+## ✨ ویژگی‌ها
 
-سعی کردم کدها تمیز و ساختار ماژولار باشد تا اضافه کردن ویژگی‌های جدید در آینده دردسر نشود.
+| بخش | توضیح |
+| :--- | :--- |
+| **هیرو** | آواتار، نام، عنوان شغلی و دکمه‌ی دانلود رزومه |
+| **درباره** | نقل قول، بیوگرافی، امضا، شبکه‌های اجتماعی و مهارت‌ها |
+| **سوابق** | تایم‌لاین ترکیبی کاری و تحصیلی، مرتب‌شده بر اساس سال |
+| **خدمات** | آیکون‌های SVG سفارشی با رنگ پس‌زمینه‌ی قابل تنظیم |
+| **پروژه‌ها** | گالری قابل فیلتر با پشتیبانی از چند دسته‌بندی |
+| **همکاری** | بخش دعوت به همکاری با تصویر پس‌زمینه‌ی سفارشی |
+| **نظرات** | اسلایدر نظرات مشتریان با عکس و حوزه‌ی فعالیت |
+| **وبلاگ** | اسلایدر پست‌ها با توضیحات کوتاه‌شده |
+| **فوتر** | نام سایت، کپی‌رایت و شبکه‌های اجتماعی قابل تنظیم |
+| **مودال تماس** | فرم دوگانه (فریلنسر / شغل) با محافظت CSRF |
 
-## ✨ چه چیزهایی داخلش هست؟
-
-- **ظاهر مدرن** – واکنش‌گرا و سازگار با همه‌ی دستگاه‌ها
-- **وبلاگ** – می‌توانید پست بنویسید، ویرایش و حذف کنید
-- **نمایش پروژه‌ها** – فیلتر پروژه‌ها بر اساس دسته‌بندی
-- **نظرات مشتریان** – مدیریت آسان بازخوردها
-- **متغیرهای محیطی** – تنظیمات امن با `.env`
-- **آماده برای انتشار** – همراه با Gunicorn و WhiteNoise
+---
 
 ## 🛠️ تکنولوژی‌ها
 
-- **بک‌اند:** جنگو ۵.۲ LTS، پایتون ۳.۱۰+
-- **فرانت‌اند:** Tailwind CSS، HTML5، جاوااسکریپت
-- **دیتابیس:** SQLite (توسعه) / PostgreSQL (تولید)
-- **انتشار:** Gunicorn، WhiteNoise، آماده‌ی Docker
-- **ابزارها:** python-decouple، Pillow
+**بک‌اند**
+- جنگو ۵.۲ LTS
+- پایتون ۳.۱۰+
+- SQLite (توسعه) / PostgreSQL (تولید)
+- Gunicorn (سرور WSGI)
+- WhiteNoise (سرو فایل استاتیک)
 
-## 🚀 چطور اجرا کنم؟
+**فرانت‌اند**
+- Tailwind CSS 3.4 (از طریق CDN)
+- جاوااسکریپت خالص (jQuery برای کامپوننت‌های قدیمی)
+- Owl Carousel, AOS, Fancybox, MixItUp
 
-1. کلون کردن مخزن:
-   ```bash
-   git clone https://github.com/mohammadiparsa2011/django-resume-portfolio.git
-   cd django-resume-portfolio
-   ```
+**ابزارها**
+- `python-decouple` — مدیریت متغیرهای محیطی
+- `Pillow` — پردازش تصویر
+- `psycopg2-binary` — درایور PostgreSQL
 
-2. ساخت و فعال‌سازی محیط مجازی:
-   ```bash
-   python -m venv .venv
-   source .venv/bin/activate   # در ویندوز: .venv\Scripts\activate
-   ```
+---
 
-3. نصب وابستگی‌ها:
-   ```bash
-   pip install -r requirements.txt
-   ```
+## 🏗️ معماری
 
-4. ساخت فایل `.env` و اضافه کردن `SECRET_KEY` و `DEBUG` (نمونه‌اش در مخزن هست).
-
-5. اجرای مهاجرت‌ها و سرور:
-   ```bash
-   python manage.py migrate --settings=config.settings.local
-   python manage.py runserver --settings=config.settings.local
-   ```
-
-6. مرورگر را باز کنید و بروید به `http://127.0.0.1:8000`
-
-## 📁 ساختار پروژه
-
-پروژه را طوری سازماندهی کردم که تمام منطق اصلی در اپ `core` قرار دارد و اپ‌های دیگر (مانند `portfolio`، `blog`، `testimonials`) برای توسعه‌ی آینده آماده هستند. قالب‌ها هم در پوشه‌ی ریشه `templates/` قرار دارند تا دسترسی آسان‌تر باشد.
+این پروژه از یک **ساختار دامنه‌محور** پیروی می‌کنه که همه‌ی اپ‌های جنگو در پوشه‌ی `apps/` قرار دارن و تنظیمات در `config/` جدا شده.
 
 ```
 django-resume-portfolio/
-├── config/           # تنظیمات (جدا برای توسعه/تولید)
-├── apps/             # همه‌ی اپ‌های جنگو
-│   ├── core/         # اپ اصلی (ویوها، URLها)
-│   ├── portfolio/    # فقط مدل‌ها (برای آینده)
-│   ├── blog/         # فقط مدل‌ها (برای آینده)
-│   └── testimonials/ # فقط مدل‌ها (برای آینده)
-├── templates/        # قالب‌های HTML
-├── static/           # فایل‌های CSS، JS، تصاویر
-└── media/            # فایل‌های آپلودی کاربران
+├── config/                      # تنظیمات پروژه
+│   ├── settings/
+│   │   ├── base.py              # تنظیمات مشترک
+│   │   ├── local.py             # توسعه (DEBUG=True)
+│   │   └── production.py        # تولید (PostgreSQL, DEBUG=False)
+│   ├── urls.py                  # روت URLهای اصلی
+│   ├── wsgi.py                  # نقطه‌ی ورود WSGI
+│   └── asgi.py                  # نقطه‌ی ورود ASGI
+│
+├── apps/                        # همه‌ی اپ‌های جنگو
+│   ├── core/                    # اپ اصلی (همه‌ی مدل‌ها، ویوها، ادمین)
+│   │   ├── models.py            # ۱۴ مدل دامنه
+│   │   ├── views.py             # ویوهای خانه + تماس
+│   │   ├── admin.py             # پیکربندی حرفه‌ای ادمین
+│   │   ├── urls.py              # مسیرهای اپ
+│   │   └── apps.py              # CoreConfig
+│   ├── portfolio/               # رزرو برای آینده (فقط مدل)
+│   ├── blog/                    # رزرو برای آینده (فقط مدل)
+│   └── testimonials/            # رزرو برای آینده (فقط مدل)
+│
+├── templates/                   # ریشه‌ی قالب‌ها
+│   ├── base.html                # لایه‌ی اصلی با بلاک‌ها
+│   ├── index.html               # ترکیب صفحه اصلی
+│   └── includes/                # ۱۵ فایل جزئی
+│       ├── head.html
+│       ├── header.html
+│       ├── mobile_menu.html
+│       ├── hero.html
+│       ├── about.html
+│       ├── achievement.html
+│       ├── services.html
+│       ├── projects.html
+│       ├── hire.html
+│       ├── testimonials.html
+│       ├── blog.html
+│       ├── footer.html
+│       ├── modal_hire.html
+│       └── scripts.html
+│
+├── static/                      # فایل‌های استاتیک (CSS/JS/IMG)
+├── media/                       # فایل‌های آپلودی (در گیت نیست)
+├── .env                         # متغیرهای محیطی (در گیت نیست)
+├── manage.py
+└── requirements.txt
 ```
+
+### چرا پوشه‌ی `apps/`؟
+
+- **importهای تمیزتر** — `from apps.core.models import About` به‌وضوح نشون می‌ده اپ پروژه‌ایه.
+- **توسعه‌پذیری** — اضافه کردن اپ جدید، ریشه‌ی پروژه رو شلوغ نمی‌کنه.
+- **الگوی آشنا** — مطابق ساختار بسیاری از پروژه‌های بزرگ جنگو.
+
+---
+
+## 🚀 نصب سریع
+
+### پیش‌نیازها
+
+- پایتون **۳.۱۰+**
+- pip
+- Git
+- (اختیاری) PostgreSQL 13+ برای تولید
+
+### ۱. کلون کردن مخزن
+
+```bash
+git clone https://github.com/mohammadiparsa2011/django-resume-portfolio.git
+cd django-resume-portfolio
+```
+
+### ۲. ساخت و فعال‌سازی محیط مجازی
+
+**ویندوز (PowerShell):**
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+```
+
+**ویندوز (CMD):**
+```cmd
+python -m venv .venv
+.venv\Scripts\activate
+```
+
+**لینوکس / مک:**
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+### ۳. نصب وابستگی‌ها
+
+```bash
+pip install -r requirements.txt
+```
+
+### ۴. تنظیم متغیرهای محیطی
+
+فایل `.env` در ریشه‌ی پروژه بساز:
+
+```env
+SECRET_KEY=your-super-secret-key-change-me
+DEBUG=True
+
+# فقط برای تولید (PostgreSQL)
+DB_NAME=portfolio_db
+DB_USER=portfolio_user
+DB_PASSWORD=strong-password
+DB_HOST=localhost
+DB_PORT=5432
+```
+
+> 💡 **نکته:** برای ساخت `SECRET_KEY` از این دستور استفاده کن:
+> ```bash
+> python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
+> ```
+
+### ۵. اجرای مهاجرت‌ها و ساخت سوپر‌یوزر
+
+```bash
+python manage.py migrate
+python manage.py createsuperuser
+```
+
+### ۶. اجرای سرور توسعه
+
+```bash
+python manage.py runserver
+```
+
+آدرس سایت: **http://127.0.0.1:8000**  
+آدرس پنل ادمین: **http://127.0.0.1:8000/admin**
+
+---
+
+## ⚙️ استراتژی تنظیمات
+
+ماژول تنظیمات بر اساس محیط **جدا شده**:
+
+| فایل | کاربرد | بارگذاری از طریق |
+| :--- | :--- | :--- |
+| `config/settings/base.py` | تنظیمات مشترک | — |
+| `config/settings/local.py` | `DEBUG=True`، میزبان‌های آزاد | `manage.py` (پیش‌فرض) |
+| `config/settings/production.py` | `DEBUG=False`، PostgreSQL، میزبان‌های محدود | Gunicorn / WSGI |
+
+`manage.py` به‌طور پیش‌فرض از `config.settings.local` استفاده می‌کنه:
+
+```bash
+python manage.py runserver
+```
+
+برای تولید، ماژول رو override کن:
+
+```bash
+DJANGO_SETTINGS_MODULE=config.settings.production gunicorn config.wsgi:application
+```
+
+---
+
+## 🚢 انتشار
+
+### فایل‌های استاتیک
+
+```bash
+python manage.py collectstatic --no-input --settings=config.settings.production
+```
+
+WhiteNoise از طریق Gunicorn اون‌ها رو سرو می‌کنه.
+
+### Gunicorn
+
+```bash
+gunicorn config.wsgi:application \
+    --env DJANGO_SETTINGS_MODULE=config.settings.production \
+    --bind 0.0.0.0:8000 \
+    --workers 3
+```
+
+### چک‌لیست قبل از انتشار
+
+- [ ] `SECRET_KEY` یکتا و در `.env` ذخیره شده.
+- [ ] `DEBUG=False` در تولید.
+- [ ] `ALLOWED_HOSTS` دامنه‌هات رو لیست کرده.
+- [ ] اعتبارنامه‌های PostgreSQL در `.env` تنظیم شده.
+- [ ] `collectstatic` اجرا شده.
+- [ ] `python manage.py check --deploy` بدون هشدار پاس می‌شه.
+- [ ] HTTPS اجباری شده (`SECURE_SSL_REDIRECT = True`).
+
+---
+
+## 🔐 متغیرهای محیطی
+
+| متغیر | ضروری | توضیح |
+| :--- | :--- | :--- |
+| `SECRET_KEY` | ✅ | کلید رمزنگاری جنگو |
+| `DEBUG` | ✅ | `True` در توسعه، `False` در تولید |
+| `DB_NAME` | فقط تولید | نام دیتابیس PostgreSQL |
+| `DB_USER` | فقط تولید | کاربر PostgreSQL |
+| `DB_PASSWORD` | فقط تولید | رمز PostgreSQL |
+| `DB_HOST` | فقط تولید | میزبان دیتابیس (پیش‌فرض: `localhost`) |
+| `DB_PORT` | فقط تولید | پورت دیتابیس (پیش‌فرض: `5432`) |
+
+---
+
+## 🧠 تصمیم‌های کلیدی طراحی
+
+### ۱. چرا یک اپ `core` به‌جای چند اپ؟
+
+پروژه به‌طور عمدی به‌عنوان یک **نمونه‌کار شخصی تک‌دامنه** طراحی شده. تقسیمش به `portfolio`, `blog`, `testimonials` از همون ابتدا، بدون فایده پیچیدگی اضافه می‌کنه. پکیج‌های `apps/portfolio`, `apps/blog`, `apps/testimonials` فقط به‌عنوان **جایگاه آینده** وجود دارن — اگه پروژه رشد کرد، مهاجرت فقط جابه‌جا کردن مدل‌هاست.
+
+### ۲. چرا `first()` برای Singletonها؟
+
+مدل‌هایی مثل `HeroSection`, `About`, `Hire`, `Footer` باید **فقط یک رکورد** داشته باشن. اجبار در سطح ادمین (`has_add_permission`) و خوندن با `objects.first()`، ویوها رو ساده نگه می‌داره و از رکورد تکراری جلوگیری می‌کنه.
+
+### ۳. چرا `ManyToManyField` برای دسته‌بندی پروژه‌ها؟
+
+یک پروژه می‌تونه به **چند دسته** تعلق داشته باشه (مثلاً هم وب، هم گرافیک). `ManyToManyField` این رو به‌طور طبیعی مدل می‌کنه و با فیلتر فرانت‌اند از طریق کلاس‌های CSS مبتنی بر slug یکپارچه می‌شه.
+
+### ۴. چرا `prefetch_related()`؟
+
+بخش درباره، شبکه‌های اجتماعی، مهارت‌ها و آیکون‌های مهارت‌ها رو نمایش می‌ده — سه سطح داده‌ی مرتبط. بدون `prefetch_related`، جنگو به ازای هر ردیف یه کوئری جدا می‌زنه (**مشکل N+1**). با اون، همه‌چیز در ۳-۴ کوئری لود می‌شه.
+
+### ۵. چرا ادمین سفارشی برای لاگ درخواست‌ها؟
+
+`FreelanceRequest` و `JobRequest` **داده‌ی ارسالی کاربر** هستن — باید خواندنی ولی غیرقابل‌تغییر باشن. ترکیب `readonly_fields` + `has_change_permission = False` + `has_add_permission = False` تضمین می‌کنه که کاربر ادمین فقط می‌تونه ببینه یا حذف کنه.
+
+---
 
 ## 🤝 مشارکت
 
-اگر باگی پیدا کردید یا پیشنهادی دارید، خوشحال می‌شوم یک Issue باز کنید یا Pull Request بفرستید. همیشه برای بهبود این پروژه باز هستم.
+از مشارکت، گزارش باگ و پیشنهاد ویژگی استقبال می‌شود.  
+لطفاً قبل از تغییرات مهم، یک Issue باز کنید.
+
+۱. مخزن رو Fork کنید  
+۲. برنچ ویژگی بسازید: `git checkout -b feature/amazing-feature`  
+۳. کامیت کنید: `git commit -m "feat: add amazing feature"`  
+۴. پوش کنید: `git push origin feature/amazing-feature`  
+۵. یک Pull Request باز کنید
+
+---
 
 ## 📄 مجوز
 
-این پروژه تحت مجوز MIT منتشر شده است – برای جزئیات بیشتر فایل [LICENSE](LICENSE) را ببینید.
+تحت مجوز **MIT** منتشر شده است. برای جزئیات بیشتر فایل [`LICENSE`](LICENSE) را ببینید.
 
 ---
 
-## 👤 درباره‌ی من
+## 👤 نویسنده
 
-من **پارسا محمدی** هستم، یک توسعه‌دهنده که از ساختن اپلیکیشن‌های وب تمیز و کاربردی لذت می‌برد. می‌توانید من را در:
+**پارسا محمدی**
 
 - گیت‌هاب: [@mohammadiparsa2011](https://github.com/mohammadiparsa2011)
-- لینکدین: [پروفایل لینکدین من](https://linkedin.com/in/mohammadiparsa2011)
-- وب‌سایت: [سایت شخصی من](https://parsanova.ir)
+- لینکدین: [mohammadiparsa2011](https://linkedin.com/in/mohammadiparsa2011)
+- وب‌سایت: [parsanova.ir](https://parsanova.ir)
 
 ---
 
-⭐ اگر این پروژه به شما کمک کرد یا از آن خوشتان آمد، لطفاً به آن ستاره دهید! خیلی ارزش دارد.
+## ⭐ حمایت
+
+اگر این پروژه بهت کمک کرد، لطفاً بهش **ستاره** بده — خیلی ارزش داره!
