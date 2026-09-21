@@ -1,82 +1,140 @@
 {% load static %}
 
+<style>
+    /* استایل داخلی برای دور مشکی تب فعال */
+    .bix-tab-popup.active {
+        border: 2px solid #111a24 !important;
+        border-radius: 15px;
+        background-color: #f7f5fb;
+    }
+    .bix-tab-popup.active a {
+        color: #111a24 !important;
+    }
+</style>
 
 <div class="bix-modal-overlay w-full h-screen hidden fixed top-0 left-0 z-[50] bg-[#00000080] blur-[2px]"></div>
-<div class="bix-modal max-[575px]:w-full fixed hidden top-[45%] max-[767px]:top-[50%] left-[50%] z-[51] max-[767px]:w-full max-[767px]:max-h-full">
-    <div class="bix-modal-dialog h-full my-[0%] transition-transform duration-[0.3s] ease-out mx-auto max-w-[500px] w-[500px] max-[575px]:max-w-full max-[575px]:w-full p-[0.5rem]">
-        <div class="modal-content p-[20px] bg-[#fff] rounded-[30px] relative overflow-hidden">
-            <div class="modal-body">
-                <div class="bix-contact-tabs">
-                    <ul class="nav nav-tabs mb-[24px] inline-flex justify-center items-center bg-[#fff] border-[1px] border-solid border-[#111a24] rounded-[25px]" id="contact_tabs">
-                        <li class="bix-tab-popup nav-item m-[10px] active">
-                            <a href="javascript:void(0)" class="py-[5px] px-[15px] rounded-[15px] capitalize font-medium text-[16px] block" data-id-popup="freelancer">فریلنسر</a>
-                        </li>
-                        <li class="bix-tab-popup nav-item m-[10px]">
-                            <a href="javascript:void(0)" class="py-[5px] px-[15px] rounded-[15px] capitalize font-medium text-[16px] block" data-id-popup="job">شغل</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <div class="tab-contact-pane tab-popup tab-active-popup" data-id-popup="freelancer">
-                            <div class="w-full">
-                                <form id="contact-form" method="post" action="{% url 'core:contact' %}">
-                                    {% csrf_token %}
-                                    <div class="form-group mb-[12px]">
-                                        <input type="text" name="Name" placeholder="نام" class="w-full h-[50px] p-[15px] border-[1px] border-solid border-[#eae8ef] outline-[0] rounded-[20px]">
-                                    </div>
-                                    <div class="form-group mb-[12px]">
-                                        <input type="email" name="Email" placeholder="ایمیل" class="w-full h-[50px] p-[15px] border-[1px] border-solid border-[#eae8ef] outline-[0] rounded-[20px]">
-                                    </div>
-                                    <div class="form-group mb-[12px]">
-                                        <select class="form-select w-full h-[50px] p-[15px] border-[1px] border-solid border-[#eae8ef] outline-[0] rounded-[20px]" aria-label="Select Method">
-                                            <option selected>نرخ ثابت</option>
-                                            <option value="1">نرخ ساعتی</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group mb-[12px]">
-                                        <input name="text" placeholder="پیشنهاد ویژه (فقط ۱۹۰۰ دلار)" type="email" class="w-full h-[50px] p-[15px] border-[1px] border-solid border-[#eae8ef] outline-[0] rounded-[20px]">
-                                    </div>
-                                    <div class="form-group mb-[12px]">
-                                        <textarea name="your-comment" placeholder="نامه پیشنهاد" class="w-full h-auto p-[15px] border-[1px] border-solid border-[#eae8ef] outline-[0] rounded-[20px]"></textarea>
-                                    </div>
-                                    <div class="bix-review-buttons">
-                                        <button type="submit" class="bix-button transition-all duration-[0.3s] ease-in-out py-[10px] px-[15px] font-montserrat text-[14px] font-semibold leading-[1.2] capitalize bg-[#fff] text-[#111a24] border-[1px] border-solid border-[#111a24] rounded-[15px] hover:bg-[#f41a4a] hover:border-[#f41a4a] hover:text-[#fff]" value="Submit">ارسال</button>
-                                        <button type="button" class="bix-button bix-close-modal transition-all duration-[0.3s] ease-in-out py-[10px] px-[15px] font-montserrat text-[14px] font-semibold leading-[1.2] capitalize bg-[#fff] text-[#111a24] border-[1px] border-solid border-[#111a24] rounded-[15px] hover:bg-[#f41a4a] hover:border-[#f41a4a] hover:text-[#fff]">بستن</button>
-                                    </div>
-                                </form>
+
+<div class="bix-modal hidden fixed top-1/2 left-1/2 z-[51] w-full max-w-[95%] sm:max-w-[450px] md:max-w-[500px] -translate-x-1/2 -translate-y-1/2">
+    <div class="modal-content p-[15px] sm:p-[20px] bg-[#fff] rounded-[30px] relative overflow-hidden max-h-[95vh] overflow-y-auto">
+        <div class="modal-body">
+            <div class="bix-contact-tabs">
+                <ul class="nav nav-tabs mb-[20px] inline-flex justify-center items-center bg-[#fff] border-[1px] border-solid border-[#111a24] rounded-[25px] w-full sm:w-auto">
+                    <li class="bix-tab-popup nav-item m-[8px] sm:m-[10px] active flex-1 sm:flex-none" data-tab="freelancer">
+                        <a href="javascript:void(0)" class="py-[5px] px-[12px] sm:px-[15px] rounded-[15px] capitalize font-medium text-[14px] sm:text-[16px] block text-center">فریلنسر</a>
+                    </li>
+                    <li class="bix-tab-popup nav-item m-[8px] sm:m-[10px] flex-1 sm:flex-none" data-tab="job">
+                        <a href="javascript:void(0)" class="py-[5px] px-[12px] sm:px-[15px] rounded-[15px] capitalize font-medium text-[14px] sm:text-[16px] block text-center">شغل</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+
+                    <div class="tab-contact-pane tab-popup tab-active-popup" id="pane-freelancer">
+                        <form id="contact-form" method="post" action="{% url 'core:contact' %}">
+                            {% csrf_token %}
+                            <div class="form-group mb-[10px]">
+                                <input type="text" name="Name" placeholder="نام" class="w-full h-[44px] sm:h-[50px] p-[12px] sm:p-[15px] border-[1px] border-solid border-[#eae8ef] outline-[0] rounded-[20px] text-[14px] sm:text-[16px]">
                             </div>
-                        </div>
-                        <div class="tab-contact-pane tab-popup" data-id-popup="job">
-                            <div class="w-full">
-                                <form method="post" action="{% url 'core:contact' %}">
-                                    {% csrf_token %}
-                                    <div class="form-group mb-[12px]">
-                                        <input type="text" name="Name" placeholder="نام" class="w-full h-[50px] p-[15px] border-[1px] border-solid border-[#eae8ef] outline-[0] rounded-[20px]">
-                                    </div>
-                                    <div class="form-group mb-[12px]">
-                                        <input type="email" name="Email" placeholder="ایمیل" class="w-full h-[50px] p-[15px] border-[1px] border-solid border-[#eae8ef] outline-[0] rounded-[20px]">
-                                    </div>
-                                    <div class="form-group mb-[12px]">
-                                        <select class="form-select w-full h-[50px] p-[15px] border-[1px] border-solid border-[#eae8ef] outline-[0] rounded-[20px]" aria-label="Select Method">
-                                            <option selected="">شغل مجازی</option>
-                                            <option value="1">شغل اداری</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group mb-[12px]">
-                                        <input name="text" placeholder="حقوق پیشنهادی به استثنای ۱۵۰۰ دلار در ماه" type="email" class="w-full h-[50px] p-[15px] border-[1px] border-solid border-[#eae8ef] outline-[0] rounded-[20px]">
-                                    </div>
-                                    <div class="form-group mb-[12px]">
-                                        <textarea name="your-comment" placeholder="نامه پیشنهاد" class="w-full h-auto p-[15px] border-[1px] border-solid border-[#eae8ef] outline-[0] rounded-[20px]"></textarea>
-                                    </div>
-                                    <div class="bix-review-buttons">
-                                        <button type="submit" class="bix-button transition-all duration-[0.3s] ease-in-out py-[10px] px-[15px] font-montserrat text-[14px] font-semibold leading-[1.2] capitalize bg-[#fff] text-[#111a24] border-[1px] border-solid border-[#111a24] rounded-[15px] hover:bg-[#f41a4a] hover:border-[#f41a4a] hover:text-[#fff]" value="Submit">ارسال</button>
-                                        <button type="button" class="bix-button bix-close-modal transition-all duration-[0.3s] ease-in-out py-[10px] px-[15px] font-montserrat text-[14px] font-semibold leading-[1.2] capitalize bg-[#fff] text-[#111a24] border-[1px] border-solid border-[#111a24] rounded-[15px] hover:bg-[#f41a4a] hover:border-[#f41a4a] hover:text-[#fff]">بستن</button>
-                                    </div>
-                                </form>
+                            <div class="form-group mb-[10px]">
+                                <input type="email" name="Email" placeholder="ایمیل" class="w-full h-[44px] sm:h-[50px] p-[12px] sm:p-[15px] border-[1px] border-solid border-[#eae8ef] outline-[0] rounded-[20px] text-[14px] sm:text-[16px]">
                             </div>
-                        </div>
+                            <div class="form-group mb-[10px]">
+                                <select name="rate_type" class="form-select w-full h-[44px] sm:h-[50px] p-[12px] sm:p-[15px] border-[1px] border-solid border-[#eae8ef] outline-[0] rounded-[20px] text-[14px] sm:text-[16px] bg-white">
+                                    <option value="fixed">نرخ ثابت</option>
+                                    <option value="hourly">نرخ ساعتی</option>
+                                </select>
+                            </div>
+                            <div class="form-group mb-[10px]">
+                                <input name="special_offer" placeholder="پیشنهاد ویژه ..." class="w-full h-[44px] sm:h-[50px] p-[12px] sm:p-[15px] border-[1px] border-solid border-[#eae8ef] outline-[0] rounded-[20px] text-[14px] sm:text-[16px]">
+                            </div>
+                            <div class="form-group mb-[10px]">
+                                <textarea name="your-comment" placeholder="نامه پیشنهاد" class="w-full h-auto p-[12px] sm:p-[15px] border-[1px] border-solid border-[#eae8ef] outline-[0] rounded-[20px] text-[14px] sm:text-[16px] min-h-[100px]"></textarea>
+                            </div>
+                            <div class="bix-review-buttons flex flex-wrap justify-center gap-[8px] sm:gap-[10px] max-[480px]:flex-col max-[480px]:items-stretch">
+                                <button type="submit" class="bix-button transition-all duration-[0.3s] ease-in-out py-[10px] px-[15px] font-montserrat text-[14px] font-semibold leading-[1.2] capitalize bg-[#fff] text-[#111a24] border-[1px] border-solid border-[#111a24] rounded-[15px] hover:bg-[#f41a4a] hover:border-[#f41a4a] hover:text-[#fff] w-full sm:w-auto">ارسال</button>
+                                <button type="button" class="bix-button bix-close-modal transition-all duration-[0.3s] ease-in-out py-[10px] px-[15px] font-montserrat text-[14px] font-semibold leading-[1.2] capitalize bg-[#fff] text-[#111a24] border-[1px] border-solid border-[#111a24] rounded-[15px] hover:bg-[#f41a4a] hover:border-[#f41a4a] hover:text-[#fff] w-full sm:w-auto">بستن</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="tab-contact-pane tab-popup" id="pane-job" style="display: none;">
+                        <form method="post" action="{% url 'core:contact' %}">
+                            {% csrf_token %}
+                            <div class="form-group mb-[10px]">
+                                <input type="text" name="Name" placeholder="نام" class="w-full h-[44px] sm:h-[50px] p-[12px] sm:p-[15px] border-[1px] border-solid border-[#eae8ef] outline-[0] rounded-[20px] text-[14px] sm:text-[16px]">
+                            </div>
+                            <div class="form-group mb-[10px]">
+                                <input type="email" name="Email" placeholder="ایمیل" class="w-full h-[44px] sm:h-[50px] p-[12px] sm:p-[15px] border-[1px] border-solid border-[#eae8ef] outline-[0] rounded-[20px] text-[14px] sm:text-[16px]">
+                            </div>
+                            <div class="form-group mb-[10px]">
+                                <select name="job_type" class="form-select w-full h-[44px] sm:h-[50px] p-[12px] sm:p-[15px] border-[1px] border-solid border-[#eae8ef] outline-[0] rounded-[20px] text-[14px] sm:text-[16px] bg-white">
+                                    <option value="remote">شغل مجازی</option>
+                                    <option value="office">شغل اداری</option>
+                                </select>
+                            </div>
+                            <div class="form-group mb-[10px]">
+                                <input name="salary_suggestion" placeholder="حقوق پیشنهادی ..." class="w-full h-[44px] sm:h-[50px] p-[12px] sm:p-[15px] border-[1px] border-solid border-[#eae8ef] outline-[0] rounded-[20px] text-[14px] sm:text-[16px]">
+                            </div>
+                            <div class="form-group mb-[10px]">
+                                <textarea name="your-comment" placeholder="نامه پیشنهاد" class="w-full h-auto p-[12px] sm:p-[15px] border-[1px] border-solid border-[#eae8ef] outline-[0] rounded-[20px] text-[14px] sm:text-[16px] min-h-[100px]"></textarea>
+                            </div>
+                            <div class="bix-review-buttons flex flex-wrap justify-center gap-[8px] sm:gap-[10px] max-[480px]:flex-col max-[480px]:items-stretch">
+                                <button type="submit" class="bix-button transition-all duration-[0.3s] ease-in-out py-[10px] px-[15px] font-montserrat text-[14px] font-semibold leading-[1.2] capitalize bg-[#fff] text-[#111a24] border-[1px] border-solid border-[#111a24] rounded-[15px] hover:bg-[#f41a4a] hover:border-[#f41a4a] hover:text-[#fff] w-full sm:w-auto">ارسال</button>
+                                <button type="button" class="bix-button bix-close-modal transition-all duration-[0.3s] ease-in-out py-[10px] px-[15px] font-montserrat text-[14px] font-semibold leading-[1.2] capitalize bg-[#fff] text-[#111a24] border-[1px] border-solid border-[#111a24] rounded-[15px] hover:bg-[#f41a4a] hover:border-[#f41a4a] hover:text-[#fff] w-full sm:w-auto">بستن</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var tabs = document.querySelectorAll('.bix-tab-popup');
+        var panes = {
+            freelancer: document.getElementById('pane-freelancer'),
+            job: document.getElementById('pane-job')
+        };
+
+        function switchTab(tabId) {
+            for (var key in panes) {
+                if (panes[key]) {
+                    panes[key].style.display = 'none';
+                }
+            }
+
+            tabs.forEach(function(tab) {
+                tab.classList.remove('active');
+            });
+
+            if (panes[tabId]) {
+                panes[tabId].style.display = 'block';
+            }
+
+            tabs.forEach(function(tab) {
+                if (tab.getAttribute('data-tab') === tabId) {
+                    tab.classList.add('active');
+                }
+            });
+        }
+
+        tabs.forEach(function(tab) {
+            tab.addEventListener('click', function(e) {
+                e.preventDefault();
+                var tabId = this.getAttribute('data-tab');
+                if (tabId) {
+                    switchTab(tabId);
+                }
+            });
+        });
+
+        if (panes.job) {
+            panes.job.style.display = 'none';
+        }
+        if (panes.freelancer) {
+            panes.freelancer.style.display = 'block';
+        }
+    });
+</script>
