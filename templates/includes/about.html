@@ -19,7 +19,9 @@
                         <h6 class="mb-[0] font-montserrat text-[16px] text-[#111a24] font-bold tracking-[0.03rem] leading-[1.2]">{{ about.job_title }}</h6>
                         <p class="text-[14px] text-[#555] mb-[16px] font-montserrat font-normal leading-[26px] tracking-[0.03rem]">{{ about.name }}</p>
                         <div class="inner-sign-items">
-                            <img src="{{ about.signature.url }}" alt="sign" class="white-mode w-[120px] inline">
+                            {% if about.signature %}
+                                <img src="{{ about.signature.url }}" alt="sign" class="white-mode w-[120px] inline">
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -27,12 +29,16 @@
 
             <div class="max-[1199px]:order-1 min-[1200px]:w-[33.33%] min-[992px]:w-[100%] w-full px-[12px] mb-[30px]" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="600">
                 <div class="bix-about-img border-[1px] border-solid border-[#111a24] p-[15px] rounded-[200px] relative max-[1199px]:max-w-fit max-[1199px]:m-auto">
-                    <img src="{{ about.main_image.url }}" alt="about" class="w-full rounded-[200px]">
-                    
+                    {% if about.main_image %}
+                        <img src="{{ about.main_image.url }}" alt="about" class="w-full rounded-[200px]">
+                    {% endif %}
+
                     <div class="inner-item transition-all duration-[0.3s] ease-in-out h-full absolute top-[0] right-[-7px] flex flex-col justify-center z-[0] opacity-[0]">
                         {% for social in about.social_links.all|slice:":3" %}
                         <a class="box-inner my-[20px] relative" href="{{ social.url }}" target="_blank">
-                            <img src="{{ social.icon.url }}" alt="{{ social.name }}" class="w-[18px] h-[18px] relative z-[1] rounded-[0]">
+                            {% if social.icon %}
+                                <img src="{{ social.icon.url }}" alt="{{ social.name }}" class="w-[18px] h-[18px] relative z-[1] rounded-[0]">
+                            {% endif %}
                         </a>
                         {% empty %}
                         <span class="text-[12px] text-gray-400">هیچ شبکه‌ای تعریف نشده</span>
@@ -50,7 +56,9 @@
                         <div class="skill-logo transition-all duration-[0.3s] ease-in-out flex justify-end absolute right-[60px] top-[-30px] z-[1] opacity-[0]">
                             {% for icon in skill.icons.all|slice:":2" %}
                             <a href="{{ icon.url|default:'javascript:void(0)' }}" class="relative h-[30px] w-[30px] mx-[20px] border-[1px] border-solid border-[#111a24] bg-[#fff] rounded-[20px]">
-                                <img src="{{ icon.icon_image.url }}" alt="logo" class="w-[28px] p-[5px]">
+                                {% if icon.icon_image %}
+                                    <img src="{{ icon.icon_image.url }}" alt="logo" class="w-[28px] p-[5px]">
+                                {% endif %}
                             </a>
                             {% endfor %}
                         </div>
